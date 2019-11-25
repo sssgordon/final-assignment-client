@@ -16,7 +16,8 @@ export const signUp = data => dispatch => {
     .post(`${baseUrl}/users`)
     .send(data)
     .then(response => {
-      const action = doLogin(response.body);
+      const action = doLogin(response.text);
+
       dispatch(action);
     })
     .catch(console.error);
