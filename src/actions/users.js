@@ -2,7 +2,7 @@ import request from "superagent";
 
 const baseUrl = "http://localhost:4000";
 
-// create user
+// login
 export const LOGIN = "LOGIN";
 function doLogin(payload) {
   return {
@@ -11,6 +11,21 @@ function doLogin(payload) {
   };
 }
 
+export const login = data => dispatch => {
+  //   console.log("dispatch test");
+
+  request
+    .post(`${baseUrl}/login`)
+    .send(data)
+    .then(response => {
+      console.log("response text test", response.text);
+      const action = doLogin(response.text);
+      dispatch(action);
+    })
+    .catch(console.error);
+};
+
+// create user
 export const signUp = data => dispatch => {
   request
     .post(`${baseUrl}/users`)

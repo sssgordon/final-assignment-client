@@ -6,11 +6,12 @@ export default function Navigation(props) {
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand href="#home">TicketExchange</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Nav className="mr-auto">
         <Nav.Link href="#home">Events</Nav.Link>
       </Nav>
-      <Button variant="primary">Login</Button>
+      <Button variant="primary" href="/login">
+        Login
+      </Button>
     </Navbar>
   );
 }
