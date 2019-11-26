@@ -9,6 +9,7 @@ class EventsContainer extends Component {
   };
 
   render() {
+    console.log("events test", this.props.events);
     return (
       <div>
         <Events events={this.props.events} />

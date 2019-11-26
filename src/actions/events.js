@@ -18,7 +18,6 @@ export const getEvents = () => (dispatch, getState) => {
   if (!events.length) {
     request(`${baseUrl}/events`)
       .then(response => {
-        console.log("response test", response);
         const action = setEvents(response.body);
         dispatch(action);
       })
