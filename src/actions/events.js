@@ -46,28 +46,3 @@ export const createEvent = data => dispatch => {
     })
     .catch(console.error);
 };
-
-// set tickets
-
-export const SET_TICKETS = "SET_TICKETS";
-function setTickets(payload) {
-  return {
-    type: SET_TICKETS,
-    payload
-  };
-}
-
-export const getTickets = eventId => (dispatch, getState) => {
-  const state = getState();
-  const { tickets } = state;
-
-  if (!tickets.length) {
-    request(`${baseUrl}/events/${eventId}/tickets`)
-      .then(response => {
-        // console.log("response test", response);
-        const action = setTickets(response.body);
-        dispatch(action);
-      })
-      .catch(console.error);
-  }
-};
