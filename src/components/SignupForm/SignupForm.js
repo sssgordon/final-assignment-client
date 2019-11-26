@@ -1,7 +1,14 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function SignupForm(props) {
+  const success = props.jwt && (
+    <Alert variant="success">
+      You are logged in! Click <Link to="/">here</Link> to TicketExchange!
+    </Alert>
+  );
+
   return (
     <Form onSubmit={props.onSubmit}>
       <Form.Group controlId="formGroupUsername">
@@ -37,6 +44,7 @@ export default function SignupForm(props) {
       <Button variant="primary" type="submit">
         Sign up &amp; Login
       </Button>
+      {success}
     </Form>
 
     // <form onSubmit={props.onSubmit}>

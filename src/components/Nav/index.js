@@ -3,7 +3,7 @@ import Nav from "./Navigation";
 
 export default class NavigationContainer extends Component {
   render() {
-    // ternary for login or user icon
+    // const path = this.props.match.params.path;
     return <Nav />;
   }
 }
