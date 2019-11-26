@@ -1,0 +1,44 @@
+.event-link {
+  width: 80%;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.event-link:hover {
+  text-decoration: none;
+}
+
+.event-div {
+  border: black solid 1px;
+  border-radius: 10px;
+
+  width: 80%;
+  min-height: 250px;
+  max-height: 350px;
+  margin: 50px auto;
+}
+
+/* .event-absolute.div {
+  width: 100%;
+} */
+.event-img-div {
+  width: 100%;
+}
+.event-img {
+  width: 100%;
+  overflow: hidden;
+}
+
+.event-div h1 {
+  position: absolute;
+  top: 70px;
+  left: 50px;
+}
+
+.event-div h2 {
+  position: absolute;
+  top: 22px;
+  left: 800px;
+}

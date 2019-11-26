@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import "./App.css";
 import { Route } from "react-router-dom";
 import NavigationContainer from "./components/Nav";
 import SignupFormContainer from "./components/SignupForm";
