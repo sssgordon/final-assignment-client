@@ -16,7 +16,9 @@ function NavButton(props) {
 export default function Navigation(props) {
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#home">TicketExchange</Navbar.Brand>
+      <Link to="/">
+        <Navbar.Brand>TicketExchange</Navbar.Brand>
+      </Link>
       <Nav className="mr-auto"></Nav>
       <NavButton jwt={props.jwt} />
     </Navbar>
