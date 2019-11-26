@@ -26,7 +26,7 @@ export default function LoginForm(props) {
         <Form.Control
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Enter password"
           onChange={props.onChange}
           value={props.values.password}
         />

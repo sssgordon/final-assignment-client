@@ -11,14 +11,14 @@ class EventsContainer extends Component {
   render() {
     return (
       <div>
-        <Events events={this.props.events} />
+        <Events events={this.props.events} jwt={this.props.jwt} />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  return { events: state.events };
+  return { events: state.events, jwt: state.jwt };
 };
 
 export default connect(mapStateToProps, { getEvents })(EventsContainer);
