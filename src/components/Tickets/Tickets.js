@@ -7,7 +7,11 @@ export default function Tickets(props) {
   return (
     <ul>
       {props.tickets.map((ticket, index) => {
-        return <li key={index}>{ticket.description}</li>;
+        return (
+          <li key={index}>
+            {ticket.description} by {ticket.user.username}
+          </li>
+        );
       })}
     </ul>
   );
