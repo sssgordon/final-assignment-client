@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Tickets from "./Tickets";
 import { connect } from "react-redux";
 import { getEvents } from "../../actions/events";
@@ -13,9 +13,13 @@ class TicketsContainer extends Component {
   };
 
   render() {
-    if (!this.props.tickets.length) {
-      return null;
-    }
+    // if (!this.props.tickets.length) {
+    //   return null;
+    // }
+
+    const noTicket = !this.props.tickets.length && (
+      <p>There is no ticket for this event yet!</p>
+    );
 
     const event =
       this.props.events.length &&
@@ -26,12 +30,15 @@ class TicketsContainer extends Component {
     const eventId = event.id;
 
     return (
-      <Tickets
-        tickets={this.props.tickets}
-        jwt={this.props.jwt}
-        eventName={eventName}
-        eventId={eventId}
-      />
+      <Fragment>
+        {noTicket}
+        <Tickets
+          tickets={this.props.tickets}
+          jwt={this.props.jwt}
+          eventName={eventName}
+          eventId={eventId}
+        />
+      </Fragment>
     );
   }
 }
