@@ -6,14 +6,10 @@ export default function Tickets(props) {
   }
   return (
     <Fragment>
-      <h1>{props.event.name}</h1>
+      {/* <h1>{props.event.name}</h1> */}
       <ul>
         {props.tickets.map((ticket, index) => {
-          return (
-            <li key={index}>
-              {ticket.description} by {ticket.user.username}
-            </li>
-          );
+          return <li key={index}>{ticket.description}</li>;
         })}
       </ul>
     </Fragment>
