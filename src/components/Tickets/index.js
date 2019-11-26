@@ -31,13 +31,13 @@ class TicketsContainer extends Component {
 
     return (
       <Fragment>
-        {noTicket}
         <Tickets
           tickets={this.props.tickets}
           jwt={this.props.jwt}
           eventName={eventName}
           eventId={eventId}
         />
+        {noTicket}
       </Fragment>
     );
   }

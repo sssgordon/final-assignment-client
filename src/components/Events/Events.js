@@ -5,7 +5,7 @@ import CreateEventFormContainer from "../CreateEventForm";
 
 export default function Events(props) {
   const createEvent = props.jwt && (
-    <Accordion defaultActiveKey="0">
+    <Accordion>
       <Card>
         <Card.Header>
           <Accordion.Toggle as={Button} variant="link" eventKey="0">
