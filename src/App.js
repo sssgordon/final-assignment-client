@@ -5,6 +5,8 @@ import NavigationContainer from "./components/Nav";
 import SignupFormContainer from "./components/SignupForm";
 import LoginFormContainer from "./components/LoginForm";
 import EventsContainer from "./components/Events";
+import CreateEventFormContainer from "./components/CreateEventForm";
+import TicketsContainer from "./components/Tickets";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Route path="/login" component={LoginFormContainer} exact />
       <Route path="/signup" component={SignupFormContainer} exact />
       <Route path="/" component={EventsContainer} exact />
+      <Route path="/create-event" component={CreateEventFormContainer} exact />
+      <Route path="/events/:eventId/tickets" component={TicketsContainer} />
     </Fragment>
   );
 }
