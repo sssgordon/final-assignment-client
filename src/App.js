@@ -16,7 +16,7 @@ function App() {
       <Route path="/signup" component={SignupFormContainer} exact />
       <Route path="/" component={EventsContainer} exact />
       <Route path="/create-event" component={CreateEventFormContainer} exact />
-      <Route path="/events/:eventId/tickets" component={TicketsContainer} />
+      <Route path="/events/:eventId" component={TicketsContainer} />
     </Fragment>
   );
 }
