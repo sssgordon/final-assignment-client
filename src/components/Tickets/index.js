@@ -19,7 +19,7 @@ class TicketsContainer extends Component {
     const tickets = event.tickets;
     // console.log("tickets test", tickets);
 
-    return <Tickets tickets={tickets} />;
+    return <Tickets tickets={tickets} event={event} />;
   }
 }
 
