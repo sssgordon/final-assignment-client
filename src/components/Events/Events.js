@@ -31,7 +31,9 @@ export default function Events(props) {
             <Card.Body>
               <Card.Title>{event.name}</Card.Title>
               <Card.Text>{event.description}</Card.Text>
-              <Button variant="primary">Tickets</Button>
+              <Link to={`/events/${event.id}/tickets`}>
+                <Button variant="primary">Tickets</Button>
+              </Link>
             </Card.Body>
           </Card>
         );
