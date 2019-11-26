@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function NavButton(props) {
   if (props.jwt) {
-    return <Button variant="dark">User</Button>; // need link
+    return <Button variant="dark">User</Button>; // need link and display username (pass as props below)?
   }
   return (
     <Link to="/login">

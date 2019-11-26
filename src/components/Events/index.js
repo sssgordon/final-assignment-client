@@ -1,14 +1,24 @@
 import React, { Component } from "react";
 import Events from "./Events";
+import { connect } from "react-redux";
+import { getEvents } from "../../actions/events";
 
-export class EventsContainer extends Component {
+class EventsContainer extends Component {
+  componentDidMount = () => {
+    this.props.getEvents();
+  };
+
   render() {
     return (
       <div>
-        <Events />
+        <Events events={this.props.events} />
       </div>
     );
   }
 }
 
-export default EventsContainer;
+const mapStateToProps = state => {
+  return { events: state.events };
+};
+
+export default connect(mapStateToProps, { getEvents })(EventsContainer);
