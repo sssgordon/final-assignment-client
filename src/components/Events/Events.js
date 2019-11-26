@@ -1,12 +1,24 @@
 import React, { Fragment } from "react";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Accordion } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import CreateEventFormContainer from "../CreateEventForm";
 
 export default function Events(props) {
   const createEvent = props.jwt && (
-    <Link to="/create-event">
-      <Button variant="primary">Create Event</Button>
-    </Link>
+    <Accordion defaultActiveKey="0">
+      <Card>
+        <Card.Header>
+          <Accordion.Toggle as={Button} variant="link" eventKey="0">
+            Create Event
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey="0">
+          <Card.Body>
+            <CreateEventFormContainer />
+          </Card.Body>
+        </Accordion.Collapse>
+      </Card>
+    </Accordion>
   );
   return (
     // need flexbox
