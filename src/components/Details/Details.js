@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Accordion, Card, Button } from "react-bootstrap";
 import CreateCommentFormContainer from "../CreateCommentForm";
 import { Link } from "react-router-dom";
+import "./Details.css";
 
 export default function Details(props) {
   const eventName = props.event && props.event.name;
@@ -34,7 +35,13 @@ export default function Details(props) {
         Ticket from {props.username} for {eventName}
       </h1>
       {editTicket}
-      <h3>Risk: {props.risk}%</h3>
+      <h3
+        className={
+          props.risk > 75 ? "red" : props.risk > 25 ? "yellow" : "green"
+        }
+      >
+        Risk: {props.risk}%
+      </h3>
       <h2>EUR {props.price}</h2>
       <p>description: {props.description}</p>
       <h2>Comments</h2>
