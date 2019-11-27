@@ -56,7 +56,7 @@ class DetailsContainer extends Component {
     const ticketAddedTime = thisTicket && thisTicket.createdAt.slice(11, 13);
 
     // 4.
-    const numOfComments = thisTicket && thisTicket.comments.length;
+    const numOfComments = thisTicket.comments && thisTicket.comments.length;
     // console.log("comment length test", numOfComments);
 
     const risk = () => {
