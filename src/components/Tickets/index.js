@@ -14,7 +14,7 @@ class TicketsContainer extends Component {
 
   render() {
     if (!this.props.events.length) {
-      return <p>Loading...</p>;
+      return null;
     }
 
     const noTicket = !this.props.tickets.length && (

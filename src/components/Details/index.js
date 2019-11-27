@@ -13,7 +13,7 @@ class DetailsContainer extends Component {
 
   render() {
     if (!this.props.tickets.length) {
-      return <p>Loading...</p>;
+      return null;
     }
 
     const { ticketId } = this.props.match.params;
