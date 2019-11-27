@@ -30,20 +30,14 @@ function newComment(payload) {
   };
 }
 
-export const createComment = () =>
-  // description,
-  // imageUrl,
-  // price,
-  // eventId,
-  // jwt
-  dispatch => {
-    request
-      .post(`${baseUrl}/comments`)
-      // .send({ description, imageUrl, price, eventId, jwt })
-      .then(response => {
-        const action = newComment(response.body);
-
-        dispatch(action);
-      })
-      .catch(console.error);
-  };
+export const createComment = (content, ticketId, jwt) => dispatch => {
+  request
+    .post(`${baseUrl}/comments`)
+    .send({ content, ticketId, jwt })
+    .then(response => {
+      const action = newComment(response.body);
+      console.log(response.body);
+      dispatch(action);
+    })
+    .catch(console.error);
+};

@@ -37,3 +37,22 @@ export const signUp = data => dispatch => {
     })
     .catch(console.error);
 };
+
+// get all users
+export const SET_USERS = "SET_USERS";
+function setUsers(payload) {
+  return {
+    type: SET_USERS,
+    payload
+  };
+}
+
+export const getAllUsers = () => dispatch => {
+  request(`${baseUrl}/users`)
+    .then(response => {
+      // console.log("response body test", response.body);
+      const action = setUsers(response.body);
+      dispatch(action);
+    })
+    .catch(console.error);
+};
