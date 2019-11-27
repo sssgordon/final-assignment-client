@@ -39,6 +39,7 @@ class DetailsContainer extends Component {
           comments={comments}
           ticketId={ticketId}
           event={event}
+          thisUsername={this.props.username}
         />
       </Fragment>
     );
@@ -49,7 +50,8 @@ const mapStateToProps = state => {
   return {
     tickets: state.tickets,
     comments: state.comments,
-    events: state.events
+    events: state.events,
+    username: state.user.username
   };
 };
 
