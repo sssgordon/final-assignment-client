@@ -33,7 +33,7 @@ export default function Events(props) {
             style={{ width: "80%", margin: "30px auto" }}
           >
             <Link
-              to={`/events/${event.id}/tickets`}
+              to={`/events/${event.id}`}
               style={{ textDecoration: "none", color: "white" }}
             >
               <Card.Img src={event.imageUrl} alt="Card image" />

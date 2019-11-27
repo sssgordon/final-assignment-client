@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { Accordion, Card, Button } from "react-bootstrap";
 import CreateTicketFormContainer from "../CreateTicketForm";
+import { Link } from "react-router-dom";
 
 export default function Tickets(props) {
   if (!props.tickets) {
@@ -30,7 +31,11 @@ export default function Tickets(props) {
       {createTicket}
       <ul>
         {props.tickets.map((ticket, index) => {
-          return <li key={index}>{ticket.description}</li>;
+          return (
+            <Link to={`/tickets/${ticket.id}`}>
+              <li key={index}>{ticket.description}</li>
+            </Link>
+          );
         })}
       </ul>
     </Fragment>
