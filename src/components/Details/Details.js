@@ -7,13 +7,14 @@ export default function Details(props) {
   const comments = props.comments.length ? (
     props.comments.map(comment => {
       // console.log("comment test", comment);
-      const author =
-        props.users.length &&
-        props.users.find(user => user.id == comment.userId);
+      // const author =
+      //   props.users.length &&
+      //   props.users.find(user => user.id == comment.userId);
       // console.log("author test", author);
+      const author = comment.user ? comment.user.username : comment.author;
       return (
         <p key={comment.id}>
-          {comment.content} by {author.username}
+          {comment.content} by {author}
         </p>
       );
     })
