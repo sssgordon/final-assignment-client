@@ -20,13 +20,14 @@ class DetailsContainer extends Component {
   };
 
   render() {
-    if (!this.props.tickets.length) {
-      return null;
-    }
-
+    // if (!this.props.tickets.length) {
+    //   return null;
+    // }
     // details
     const { ticketId } = this.props.match.params;
-    const thisTicket = this.props.tickets.find(ticket => ticket.id == ticketId);
+    const thisTicket =
+      this.props.tickets.length &&
+      this.props.tickets.find(ticket => ticket.id == ticketId);
     const { description } = thisTicket;
     const username = thisTicket.user
       ? thisTicket.user.username
@@ -38,6 +39,16 @@ class DetailsContainer extends Component {
       this.props.events.find(event => event.id == thisTicket.eventId);
 
     // fraud risk
+    const userTicketsNum =
+      this.props.risk.userTickets && this.props.risk.userTickets.length;
+    const risk = () => {
+      let risk = 0;
+      if (userTicketsNum === 1) {
+        risk += 10;
+      }
+      return risk;
+    };
+    console.log(risk());
 
     return (
       <Fragment>
@@ -49,6 +60,7 @@ class DetailsContainer extends Component {
           ticketId={ticketId}
           event={event}
           thisUsername={this.props.username}
+          userTickets={this.props.risk.userTickets}
         />
       </Fragment>
     );
