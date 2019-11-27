@@ -1,11 +1,14 @@
 import React, { Fragment } from "react";
 import { Accordion, Card, Button } from "react-bootstrap";
 import CreateCommentFormContainer from "../CreateCommentForm";
+import { Link } from "react-router-dom";
 
 export default function Details(props) {
   const editTicket =
     props.thisUsername === props.username ? (
-      <Button variant="primary">Edit</Button>
+      <Link to={`/edit/tickets/${props.ticketId}`}>
+        <Button variant="primary">Edit</Button>
+      </Link>
     ) : null;
 
   const comments = props.comments.length ? (

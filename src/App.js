@@ -8,6 +8,7 @@ import EventsContainer from "./components/Events";
 import CreateEventFormContainer from "./components/CreateEventForm";
 import TicketsContainer from "./components/Tickets";
 import DetailsContainer from "./components/Details";
+import EditDetailsFormContainer from "./components/EditDetailsForm";
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
       <Route path="/create-event" component={CreateEventFormContainer} exact />
       <Route path="/events/:eventId" component={TicketsContainer} />
       <Route path="/tickets/:ticketId" component={DetailsContainer} />
+      <Route
+        path="/edit/tickets/:ticketId"
+        component={EditDetailsFormContainer}
+      />
     </Fragment>
   );
 }

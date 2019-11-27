@@ -60,3 +60,11 @@ export const createTicket = (
     })
     .catch(console.error);
 };
+
+// edit ticket
+export const editTicket = (data, ticketId) => dispatch => {
+  request
+    .put(`${baseUrl}/edit/tickets/${ticketId}`)
+    .send(data)
+    .catch(console.error);
+};
