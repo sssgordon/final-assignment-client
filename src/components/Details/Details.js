@@ -23,7 +23,9 @@ export default function Details(props) {
 
   return (
     <Fragment>
-      <h1>Ticket from {props.username}</h1>
+      <h1>
+        Ticket from {props.username} for {props.event.name}
+      </h1>
       <h3>Risk: X%</h3>
       <h2>EUR {props.price}</h2>
       <p>description: {props.description}</p>
