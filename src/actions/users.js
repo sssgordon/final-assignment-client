@@ -18,7 +18,7 @@ export const login = data => dispatch => {
     .post(`${baseUrl}/login`)
     .send(data)
     .then(response => {
-      console.log("response text test", response.text);
+      // console.log("response text test", response.text);
       const action = doLogin(response.text);
       dispatch(action);
     })
@@ -38,21 +38,21 @@ export const signUp = data => dispatch => {
     .catch(console.error);
 };
 
-// get all users
-export const SET_USERS = "SET_USERS";
-function setUsers(payload) {
-  return {
-    type: SET_USERS,
-    payload
-  };
-}
+// // get all users
+// export const SET_USERS = "SET_USERS";
+// function setUsers(payload) {
+//   return {
+//     type: SET_USERS,
+//     payload
+//   };
+// }
 
-export const getAllUsers = () => dispatch => {
-  request(`${baseUrl}/users`)
-    .then(response => {
-      // console.log("response body test", response.body);
-      const action = setUsers(response.body);
-      dispatch(action);
-    })
-    .catch(console.error);
-};
+// export const getAllUsers = () => dispatch => {
+//   request(`${baseUrl}/users`)
+//     .then(response => {
+//       // console.log("response body test", response.body);
+//       const action = setUsers(response.body);
+//       dispatch(action);
+//     })
+//     .catch(console.error);
+// };

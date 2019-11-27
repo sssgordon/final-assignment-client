@@ -35,12 +35,12 @@ export const createComment = (content, ticketId, jwt) => dispatch => {
     .post(`${baseUrl}/comments`)
     .send({ content, ticketId, jwt })
     .then(response => {
-      console.log("response body test", response.body);
+      // console.log("response body test", response.body);
       const author = response.body.author;
       const comment = response.body.comment;
       comment.author = author;
       const action = newComment(comment);
-      console.log("comment response test", comment);
+      // console.log("comment response test", comment);
       dispatch(action);
     })
     .catch(console.error);
