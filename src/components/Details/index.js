@@ -3,10 +3,12 @@ import Details from "./Details";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllTickets } from "../../actions/tickets";
+import { getComments } from "../../actions/comments";
 
 class DetailsContainer extends Component {
   componentDidMount = () => {
     this.props.getAllTickets();
+    this.props.getComments(this.props.match.params.ticketId);
   };
 
   render() {
@@ -20,7 +22,7 @@ class DetailsContainer extends Component {
     const { description } = thisTicket;
     const { username } = thisTicket.user;
     const { price } = thisTicket;
-    const { comments } = thisTicket;
+    const { comments } = this.props;
     console.log("comments test", comments);
 
     return (
@@ -37,7 +39,9 @@ class DetailsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  return { tickets: state.tickets };
+  return { tickets: state.tickets, comments: state.comments };
 };
 
-export default connect(mapStateToProps, { getAllTickets })(DetailsContainer);
+export default connect(mapStateToProps, { getAllTickets, getComments })(
+  DetailsContainer
+);

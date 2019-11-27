@@ -5,7 +5,11 @@ export default function Details(props) {
   const comments =
     props.comments &&
     props.comments.map(comment => {
-      return <p key={comment.id}>{comment.content} by</p>;
+      return (
+        <p key={comment.id}>
+          {comment.content} by {comment.user.username}
+        </p>
+      );
     });
 
   return (
