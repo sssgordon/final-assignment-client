@@ -2,10 +2,9 @@ import React, { Fragment } from "react";
 import { Card, Button, Accordion } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import CreateEventFormContainer from "../CreateEventForm";
-import { NONAME } from "dns";
 
 export default function Events(props) {
-  const createEvent = props.jwt && (
+  const createEvent = props.user && (
     <Accordion>
       <Card>
         <Card.Header>

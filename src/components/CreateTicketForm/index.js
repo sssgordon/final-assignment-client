@@ -49,7 +49,7 @@ class CreateTicketFormContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  return { jwt: state.jwt };
+  return { jwt: state.user.jwt };
 };
 
 export default connect(mapStateToProps, { createTicket })(

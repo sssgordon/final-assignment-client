@@ -10,7 +10,7 @@ class NavigationContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  return { jwt: state.jwt };
+  return { jwt: state.user.jwt };
 };
 
 export default connect(mapStateToProps)(NavigationContainer);

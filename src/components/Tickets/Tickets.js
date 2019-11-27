@@ -8,7 +8,7 @@ export default function Tickets(props) {
     return <p>There is no ticket for this event so far!</p>;
   }
 
-  const createTicket = props.jwt && (
+  const createTicket = props.user && (
     <Accordion>
       <Card>
         <Card.Header>

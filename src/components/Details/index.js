@@ -21,7 +21,9 @@ class DetailsContainer extends Component {
     const { ticketId } = this.props.match.params;
     const thisTicket = this.props.tickets.find(ticket => ticket.id == ticketId);
     const { description } = thisTicket;
-    const { username } = thisTicket.user;
+    const username = thisTicket.user
+      ? thisTicket.user.username
+      : thisTicket.author;
     const { price } = thisTicket;
     const { comments } = this.props;
     const event =

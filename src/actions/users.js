@@ -19,7 +19,7 @@ export const login = data => dispatch => {
     .send(data)
     .then(response => {
       // console.log("response text test", response.text);
-      const action = doLogin(response.text);
+      const action = doLogin(JSON.parse(response.text));
       dispatch(action);
     })
     .catch(console.error);
@@ -31,7 +31,7 @@ export const signUp = data => dispatch => {
     .post(`${baseUrl}/users`)
     .send(data)
     .then(response => {
-      const action = doLogin(response.text);
+      const action = doLogin(JSON.parse(response.text));
 
       dispatch(action);
     })

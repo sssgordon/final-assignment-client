@@ -33,14 +33,14 @@ class LoginFormContainer extends React.Component {
         onSubmit={this.onSubmit}
         onChange={this.onChange}
         values={this.state}
-        jwt={this.props.jwt}
+        user={this.props.user}
       />
     );
   }
 }
 
 const mapStateToProps = state => {
-  return { jwt: state.jwt };
+  return { user: state.user };
 };
 
 export default connect(mapStateToProps, { login })(LoginFormContainer);

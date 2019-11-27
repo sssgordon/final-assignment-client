@@ -3,7 +3,7 @@ import { Form, Button, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default function SignupForm(props) {
-  const success = props.jwt && (
+  const success = props.user && (
     <Alert variant="success">
       You are logged in! Click <Link to="/">here</Link> to TicketExchange!
     </Alert>

@@ -31,7 +31,7 @@ class TicketsContainer extends Component {
       <Fragment>
         <Tickets
           tickets={this.props.tickets}
-          jwt={this.props.jwt}
+          user={this.props.user}
           eventName={eventName}
           eventId={eventId}
         />
@@ -42,7 +42,7 @@ class TicketsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  return { tickets: state.tickets, jwt: state.jwt, events: state.events };
+  return { tickets: state.tickets, user: state.user, events: state.events };
 };
 
 export default connect(mapStateToProps, { getTickets, getEvents })(

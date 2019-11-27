@@ -51,7 +51,10 @@ export const createTicket = (
     .post(`${baseUrl}/tickets`)
     .send({ description, imageUrl, price, eventId, jwt })
     .then(response => {
-      const action = newTicket(response.body);
+      const author = response.body.author;
+      const ticket = response.body.ticket;
+      ticket.author = author;
+      const action = newTicket(ticket);
 
       dispatch(action);
     })
