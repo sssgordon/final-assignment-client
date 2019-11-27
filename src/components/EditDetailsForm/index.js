@@ -10,6 +10,11 @@ class EditDetailsFormContainer extends Component {
     price: ""
   };
 
+  changed = false;
+  change = () => {
+    this.changed = true;
+  };
+
   onChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -21,6 +26,8 @@ class EditDetailsFormContainer extends Component {
 
     const { ticketId } = this.props.match.params;
     this.props.editTicket(this.state, ticketId);
+
+    this.change();
 
     this.setState({
       description: "",
@@ -36,6 +43,8 @@ class EditDetailsFormContainer extends Component {
           onSubmit={this.onSubmit}
           onChange={this.onChange}
           values={this.state}
+          ticketId={this.props.match.params.ticketId}
+          changed={this.changed}
         />
       </Fragment>
     );

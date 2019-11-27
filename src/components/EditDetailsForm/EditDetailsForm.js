@@ -1,7 +1,12 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function EditDetailsForm(props) {
+  const changed = props.changed && (
+    <Alert variant="success">You have changed ticket details.</Alert>
+  );
+
   return (
     <Form onSubmit={props.onSubmit}>
       <Form.Group controlId="formGroupDescription">
@@ -37,6 +42,8 @@ export default function EditDetailsForm(props) {
       <Button variant="primary" type="submit">
         Edit Ticket
       </Button>
+      <Link to={`/tickets/${props.ticketId}`}>Return</Link>
+      {changed}
     </Form>
   );
 }
