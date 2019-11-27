@@ -30,7 +30,7 @@ class CreateCommentFormContainer extends Component {
   };
 
   render() {
-    console.log("create comment form container state test", this.state);
+    // console.log("create comment form container state test", this.state);
     return (
       <Fragment>
         <CreateCommentForm

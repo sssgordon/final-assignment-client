@@ -4,14 +4,14 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllTickets } from "../../actions/tickets";
 import { getComments } from "../../actions/comments";
-import { getAllUsers } from "../../actions/users";
+// import { getAllUsers } from "../../actions/users";
 import { getEvents } from "../../actions/events";
 
 class DetailsContainer extends Component {
   componentDidMount = () => {
     this.props.getAllTickets();
     this.props.getComments(this.props.match.params.ticketId);
-    this.props.getAllUsers();
+    // this.props.getAllUsers();
     this.props.getEvents();
   };
 
@@ -41,7 +41,7 @@ class DetailsContainer extends Component {
           price={price}
           comments={comments}
           ticketId={ticketId}
-          users={this.props.users}
+          // users={this.props.users}
           event={event}
         />
       </Fragment>
@@ -53,7 +53,7 @@ const mapStateToProps = state => {
   return {
     tickets: state.tickets,
     comments: state.comments,
-    users: state.users,
+    // users: state.users,
     events: state.events
   };
 };
@@ -61,6 +61,6 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   getAllTickets,
   getComments,
-  getAllUsers,
+  // getAllUsers,
   getEvents
 })(DetailsContainer);
