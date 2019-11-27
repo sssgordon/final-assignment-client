@@ -4,6 +4,8 @@ import CreateCommentFormContainer from "../CreateCommentForm";
 import { Link } from "react-router-dom";
 
 export default function Details(props) {
+  const eventName = props.event && props.event.name;
+
   const editTicket =
     props.thisUsername === props.username ? (
       <Link to={`/edit/tickets/${props.ticketId}`}>
@@ -29,7 +31,7 @@ export default function Details(props) {
   return (
     <Fragment>
       <h1>
-        Ticket from {props.username} for {props.event.name}
+        Ticket from {props.username} for {eventName}
       </h1>
       {editTicket}
       <h3>Risk: {props.risk}%</h3>

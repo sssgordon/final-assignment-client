@@ -89,11 +89,20 @@ class DetailsContainer extends Component {
         risk += 5;
       }
 
-      return risk.toFixed(2);
+      console.log("risk test", risk);
+
+      if (risk < 5) {
+        risk = 5;
+      }
+
+      if (risk > 95) {
+        risk = 95;
+      }
+
+      return Math.ceil(risk);
     };
 
     const fraudRisk = risk();
-    console.log(fraudRisk);
 
     return (
       <Fragment>
