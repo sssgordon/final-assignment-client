@@ -9,7 +9,7 @@ export default function Details(props) {
       <h1>Ticket from username</h1>
       <h3>Risk: X%</h3>
       <h2>EUR $$$</h2>
-      <p>description</p>
+      <p>description: {props.description}</p>
       <h2>Comments</h2>
       {/* {comments} */}
     </Fragment>

@@ -21,6 +21,16 @@ export const getTickets = eventId => dispatch => {
     .catch(console.error);
 };
 
+export const getAllTickets = () => dispatch => {
+  request(`${baseUrl}/tickets`)
+    .then(response => {
+      console.log("response body test", response.body);
+      const action = setTickets(response.body);
+      dispatch(action);
+    })
+    .catch(console.error);
+};
+
 // create tickets
 export const NEW_TICKET = "NEW_TICKET";
 function newTicket(payload) {
