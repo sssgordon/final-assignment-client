@@ -68,3 +68,21 @@ export const editTicket = (data, ticketId) => dispatch => {
     .send(data)
     .catch(console.error);
 };
+
+// get all tickets of a user
+export const SET_USER_TICKETS = "SET_USER_TICKETS";
+function setUserTickets(payload) {
+  return {
+    type: SET_USER_TICKETS,
+    payload
+  };
+}
+
+export const getUserTickets = ticketId => dispatch => {
+  request(`${baseUrl}/user/tickets/${ticketId}`)
+    .then(response => {
+      const action = setUserTickets(response.body);
+      dispatch(action);
+    })
+    .catch(console.error);
+};
