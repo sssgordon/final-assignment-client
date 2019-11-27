@@ -13,19 +13,17 @@ class TicketsContainer extends Component {
   };
 
   render() {
-    // if (!this.props.tickets.length) {
-    //   return null;
-    // }
+    if (!this.props.events.length) {
+      return <p>Loading...</p>;
+    }
 
     const noTicket = !this.props.tickets.length && (
       <p>There is no ticket for this event yet!</p>
     );
 
-    const event =
-      this.props.events.length &&
-      this.props.events.find(
-        event => event.id == this.props.match.params.eventId
-      );
+    const event = this.props.events.find(
+      event => event.id == this.props.match.params.eventId
+    );
     const eventName = event.name;
     const eventId = event.id;
 
