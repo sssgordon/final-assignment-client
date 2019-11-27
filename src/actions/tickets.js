@@ -24,7 +24,7 @@ export const getTickets = eventId => dispatch => {
 export const getAllTickets = () => dispatch => {
   request(`${baseUrl}/tickets`)
     .then(response => {
-      console.log("response body test", response.body);
+      // console.log("response body test", response.body);
       const action = setTickets(response.body);
       dispatch(action);
     })

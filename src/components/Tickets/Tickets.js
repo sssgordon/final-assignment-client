@@ -32,7 +32,7 @@ export default function Tickets(props) {
       <ul>
         {props.tickets.map((ticket, index) => {
           return (
-            <Link to={`/tickets/${ticket.id}`}>
+            <Link to={`/tickets/${ticket.id}`} key={index}>
               <li key={index}>{ticket.description}</li>
             </Link>
           );
