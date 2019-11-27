@@ -39,16 +39,43 @@ class DetailsContainer extends Component {
       this.props.events.find(event => event.id == thisTicket.eventId);
 
     // fraud risk
-    const userTicketsNum =
+    // 1.
+    const numOfUserTickets =
       this.props.risk.userTickets && this.props.risk.userTickets.length;
+
+    // 2.
+    const numOfEventTickets = event && event.tickets.length;
+    const totalTicketsPrice =
+      event &&
+      event.tickets
+        .map(ticket => parseFloat(ticket.price))
+        .reduce((acc, cur) => acc + cur);
+    const averageTicketPrice = totalTicketsPrice / numOfEventTickets;
+    console.log("avg price", averageTicketPrice);
+    console.log("price", price);
+
+    // 3.
     const risk = () => {
       let risk = 0;
-      if (userTicketsNum === 1) {
+
+      if (numOfUserTickets === 1) {
         risk += 10;
       }
+
+      const difference = price - averageTicketPrice;
+      if (difference > 0) {
+        const decimalMoreExp = difference / price;
+        const percentageMoreExp = decimalMoreExp * 100;
+        percentageMoreExp > 10 ? (risk -= 10) : (risk -= percentageMoreExp);
+      } else {
+        const decimalCheaper = Math.abs(difference) / price;
+        const percentageCheaper = decimalCheaper * 100;
+        risk += percentageCheaper;
+      }
+
       return risk;
     };
-    console.log(risk());
+    console.log("risk test", risk());
 
     return (
       <Fragment>
