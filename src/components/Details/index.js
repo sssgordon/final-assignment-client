@@ -4,11 +4,13 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllTickets } from "../../actions/tickets";
 import { getComments } from "../../actions/comments";
+import { getAllUsers } from "../../actions/users";
 
 class DetailsContainer extends Component {
   componentDidMount = () => {
     this.props.getAllTickets();
     this.props.getComments(this.props.match.params.ticketId);
+    this.props.getAllUsers();
   };
 
   render() {
@@ -18,7 +20,7 @@ class DetailsContainer extends Component {
 
     const { ticketId } = this.props.match.params;
     const thisTicket = this.props.tickets.find(ticket => ticket.id == ticketId);
-    // console.log("this ticket test", thisTicket);
+    console.log("details ticket id test", ticketId);
     const { description } = thisTicket;
     const { username } = thisTicket.user;
     const { price } = thisTicket;
@@ -32,6 +34,8 @@ class DetailsContainer extends Component {
           username={username}
           price={price}
           comments={comments}
+          ticketId={ticketId}
+          users={this.props.users}
         />
       </Fragment>
     );
@@ -39,9 +43,15 @@ class DetailsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  return { tickets: state.tickets, comments: state.comments };
+  return {
+    tickets: state.tickets,
+    comments: state.comments,
+    users: state.users
+  };
 };
 
-export default connect(mapStateToProps, { getAllTickets, getComments })(
-  DetailsContainer
-);
+export default connect(mapStateToProps, {
+  getAllTickets,
+  getComments,
+  getAllUsers
+})(DetailsContainer);
