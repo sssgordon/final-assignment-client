@@ -12,7 +12,7 @@ function setTickets(payload) {
 }
 
 export const getTickets = eventId => dispatch => {
-  request(`${baseUrl}/events/${eventId}`)
+  request(`${baseUrl}/events/${eventId}/tickets`)
     .then(response => {
       // console.log("response test", response);
       const action = setTickets(response.body);
