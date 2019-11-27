@@ -51,17 +51,22 @@ class DetailsContainer extends Component {
         .map(ticket => parseFloat(ticket.price))
         .reduce((acc, cur) => acc + cur);
     const averageTicketPrice = totalTicketsPrice / numOfEventTickets;
-    console.log("avg price", averageTicketPrice);
-    console.log("price", price);
 
     // 3.
+    const ticketAddedTime = thisTicket && thisTicket.createdAt.slice(11, 13);
+
+    // 4.
+    const numOfComments = thisTicket && thisTicket.comments.length;
+    // console.log("comment length test", numOfComments);
+
     const risk = () => {
       let risk = 0;
 
+      // 1.
       if (numOfUserTickets === 1) {
         risk += 10;
       }
-
+      // 2.
       const difference = price - averageTicketPrice;
       if (difference > 0) {
         const decimalMoreExp = difference / price;
@@ -72,10 +77,23 @@ class DetailsContainer extends Component {
         const percentageCheaper = decimalCheaper * 100;
         risk += percentageCheaper;
       }
+      // 3.
+      if (ticketAddedTime > 9 && ticketAddedTime < 17) {
+        risk -= 10;
+      } else {
+        risk += 10;
+      }
 
-      return risk;
+      // 4.
+      if (numOfComments > 3) {
+        risk += 5;
+      }
+
+      return risk.toFixed(2);
     };
-    console.log("risk test", risk());
+
+    const fraudRisk = risk();
+    console.log(fraudRisk);
 
     return (
       <Fragment>
@@ -88,6 +106,7 @@ class DetailsContainer extends Component {
           event={event}
           thisUsername={this.props.username}
           userTickets={this.props.risk.userTickets}
+          risk={fraudRisk}
         />
       </Fragment>
     );

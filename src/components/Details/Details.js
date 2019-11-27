@@ -32,7 +32,7 @@ export default function Details(props) {
         Ticket from {props.username} for {props.event.name}
       </h1>
       {editTicket}
-      <h3>Risk: X%</h3>
+      <h3>Risk: {props.risk}%</h3>
       <h2>EUR {props.price}</h2>
       <p>description: {props.description}</p>
       <h2>Comments</h2>
