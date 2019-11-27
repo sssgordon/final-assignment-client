@@ -5,9 +5,9 @@ import { editTicket } from "../../actions/tickets";
 
 class EditDetailsFormContainer extends Component {
   state = {
-    description: "",
-    imageUrl: "",
-    price: ""
+    description: null,
+    imageUrl: null,
+    price: null
   };
 
   changed = false;
@@ -30,9 +30,9 @@ class EditDetailsFormContainer extends Component {
     this.change();
 
     this.setState({
-      description: "",
-      imageUrl: "",
-      price: ""
+      description: null,
+      imageUrl: null,
+      price: null
     });
   };
 
