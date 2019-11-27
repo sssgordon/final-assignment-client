@@ -26,7 +26,7 @@ class TicketsContainer extends Component {
       this.props.events.find(
         event => event.id == this.props.match.params.eventId
       );
-    const eventName = event.event;
+    const eventName = event.name;
     const eventId = event.id;
 
     return (

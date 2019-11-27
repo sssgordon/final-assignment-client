@@ -11,10 +11,7 @@ function setTickets(payload) {
   };
 }
 
-export const getTickets = eventId => (dispatch, getState) => {
-  const state = getState();
-  const { tickets } = state;
-
+export const getTickets = eventId => dispatch => {
   request(`${baseUrl}/events/${eventId}`)
     .then(response => {
       // console.log("response test", response);
