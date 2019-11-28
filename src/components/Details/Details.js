@@ -9,6 +9,10 @@ export default function Details(props) {
     return <p>Loading...</p>;
   }
 
+  const createCommentForm = props.thisUsername && (
+    <CreateCommentFormContainer ticketId={props.ticketId} />
+  );
+
   const eventName = props.event && props.event.name;
 
   const editTicket =
@@ -48,7 +52,7 @@ export default function Details(props) {
       <p>description: {props.description}</p>
       <h2>Comments</h2>
       {comments}
-      <CreateCommentFormContainer ticketId={props.ticketId} />
+      {createCommentForm}
     </Fragment>
   );
 }

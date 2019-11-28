@@ -35,6 +35,7 @@ class DetailsContainer extends Component {
     const event =
       this.props.events.length &&
       this.props.events.find(event => event.id == thisTicket.eventId);
+
     // fraud risk
     console.log("ticket test", this.props.tickets.length);
     // 1.
@@ -134,8 +135,7 @@ const mapStateToProps = state => {
     tickets: state.tickets,
     comments: state.comments,
     events: state.events,
-    username: state.user.username,
-    risk: state.risk
+    username: state.user.username
   };
 };
 
