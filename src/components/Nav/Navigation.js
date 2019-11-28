@@ -16,7 +16,7 @@ function NavButton(props) {
 export default function Navigation(props) {
   return (
     <Navbar bg="light" expand="lg">
-      <Link to="/">
+      <Link to="/events">
         <Navbar.Brand>TicketExchange</Navbar.Brand>
       </Link>
       <Nav className="mr-auto"></Nav>

@@ -16,7 +16,7 @@ function App() {
       <NavigationContainer />
       <Route path="/login" component={LoginFormContainer} exact />
       <Route path="/signup" component={SignupFormContainer} exact />
-      <Route path="/" component={EventsContainer} exact />
+      <Route path="/events" component={EventsContainer} exact />
       <Route path="/create-event" component={CreateEventFormContainer} exact />
       <Route path="/events/:eventId" component={TicketsContainer} />
       <Route path="/tickets/:ticketId" component={DetailsContainer} />

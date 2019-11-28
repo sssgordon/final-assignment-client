@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function SignupForm(props) {
   const success = props.user && (
     <Alert variant="success">
-      You are logged in! Click <Link to="/">here</Link> to TicketExchange!
+      You are logged in! Click <Link to="/events">here</Link> to TicketExchange!
     </Alert>
   );
 
