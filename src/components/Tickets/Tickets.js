@@ -32,6 +32,7 @@ export default function Tickets(props) {
       <ul>
         {props.tickets.map((ticket, index) => {
           const risk = props.risk(ticket.id);
+          const author = ticket.user ? ticket.user.username : ticket.author;
           return (
             <Link
               to={{ pathname: `/tickets/${ticket.id}`, state: { risk: risk } }}
@@ -43,7 +44,7 @@ export default function Tickets(props) {
                   risk > 75 ? "red" : props.risk > 25 ? "yellow" : "green"
                 }
               >
-                {ticket.description}
+                {ticket.description} by {author}
               </li>
             </Link>
           );
