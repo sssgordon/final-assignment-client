@@ -27,7 +27,6 @@ export default function Navigation(props) {
       <Link to="/events">
         <Navbar.Brand className="brand">TicketExchange</Navbar.Brand>
       </Link>
-      <Nav className="mr-auto"></Nav>
       <NavButton jwt={props.jwt} />
     </Navbar>
   );
