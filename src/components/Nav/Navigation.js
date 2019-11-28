@@ -17,7 +17,7 @@ export default function Navigation(props) {
   return (
     <Navbar bg="light" expand="lg">
       <Link to="/events">
-        <Navbar.Brand>TicketExchange</Navbar.Brand>
+        <Navbar.Brand style={{ color: "#0275d8" }}>TicketExchange</Navbar.Brand>
       </Link>
       <Nav className="mr-auto"></Nav>
       <NavButton jwt={props.jwt} />

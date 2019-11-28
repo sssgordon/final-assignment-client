@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 // import { getEvents } from "../../actions/events";
 import request from "superagent";
 
-export default function EventsContainer(props) {
+function EventsContainer(props) {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -31,9 +31,8 @@ export default function EventsContainer(props) {
 
   return (
     <div className="container mt-5">
-      {/* <Events events={props.events} user={props.user} /> */}
       <h1 className="text-primary mb-3">Events</h1>
-      <Events events={currentEvents} loading={loading} />
+      <Events events={currentEvents} loading={loading} user={props.user} />
       <Pagination
         eventsPerPage={eventsPerPage}
         totalEvents={events.length}
@@ -43,8 +42,8 @@ export default function EventsContainer(props) {
   );
 }
 
-// const mapStateToProps = state => {
-//   return { events: state.events, user: state.user };
-// };
+const mapStateToProps = state => {
+  return { user: state.user };
+};
 
-// export default connect(mapStateToProps)(EventsContainer);
+export default connect(mapStateToProps)(EventsContainer);
