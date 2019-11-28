@@ -5,11 +5,16 @@ import CreateEventFormContainer from "../CreateEventForm";
 import "./Events.css";
 
 export default function Events({ events, loading, user }) {
-  const createEvent = user && (
-    <Accordion style={{ marginBottom: "20px" }}>
-      <Card style={{ border: "lightgray solid 1px", borderRadius: "5px" }}>
+  const createEvent = (
+    <Accordion style={{ margin: "40px 0 20px 55px", width: "1000px" }}>
+      <Card style={{ border: "black solid 1px", borderRadius: "5px" }}>
         <Card.Header>
-          <Accordion.Toggle as={Button} variant="link" eventKey="0">
+          <Accordion.Toggle
+            as={Button}
+            variant="link"
+            eventKey="0"
+            className="create-event"
+          >
             Create Event
           </Accordion.Toggle>
         </Card.Header>

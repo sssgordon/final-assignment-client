@@ -4,7 +4,7 @@ import "./CreateEventForm.css";
 
 export default function CreateEventForm(props) {
   return (
-    <Form onSubmit={props.onSubmit}>
+    <Form onSubmit={props.onSubmit} className="create-event-form">
       <Form.Group controlId="formGroupName">
         <Form.Label>Event Name</Form.Label>
         <Form.Control
@@ -45,7 +45,7 @@ export default function CreateEventForm(props) {
           value={props.values.date}
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="dark" type="submit">
         Create Event
       </Button>
     </Form>

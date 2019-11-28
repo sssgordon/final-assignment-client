@@ -35,4 +35,16 @@
   display: inline-block;
 }
 
+.btn-link.create-event {
+  font-family: "Crimson Text", serif;
+  font-size: 25px;
+  margin: 0;
+  color: black;
+}
+
+.btn-link.create-event:hover {
+  text-decoration: none;
+  color: grey;
+}
+
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");
