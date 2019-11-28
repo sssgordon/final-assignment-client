@@ -42,14 +42,14 @@ class DetailsContainer extends Component {
       this.props.tickets.length &&
       this.props.tickets.filter(ticket => ticket.userId == thisTicket.userId)
         .length;
-    // this.props.risk.userTickets && this.props.risk.userTickets.length;
+
     console.log("num of user tickets", numOfUserTickets);
     // 2.
     const numOfEventTickets =
       this.props.tickets.length &&
       this.props.tickets.filter(ticket => ticket.eventId == thisTicket.eventId)
         .length;
-    // event && event.tickets.length;
+
     console.log("num of event tickets", numOfEventTickets);
     const totalTicketsPrice =
       this.props.tickets.length &&
@@ -57,10 +57,7 @@ class DetailsContainer extends Component {
         .filter(ticket => ticket.eventId == thisTicket.eventId)
         .map(ticket => parseFloat(ticket.price))
         .reduce((acc, cur) => acc + cur, 0);
-    // event &&
-    // event.tickets
-    //   .map(ticket => parseFloat(ticket.price))
-    //   .reduce((acc, cur) => acc + cur, 0);
+
     const averageTicketPrice = totalTicketsPrice / numOfEventTickets;
 
     // 3.
@@ -68,7 +65,6 @@ class DetailsContainer extends Component {
 
     // 4.
     const numOfComments = thisTicket.comments && thisTicket.comments.length;
-    // console.log("comment length test", numOfComments);
 
     const risk = () => {
       let risk = 0;
@@ -77,7 +73,7 @@ class DetailsContainer extends Component {
       if (numOfUserTickets === 1) {
         risk += 10;
       }
-      // console.log("risk test 1", risk);
+
       // 2.
       const difference = price - averageTicketPrice;
       if (difference > 0) {
@@ -89,7 +85,7 @@ class DetailsContainer extends Component {
         const percentageCheaper = decimalCheaper * 100;
         risk += percentageCheaper;
       }
-      // console.log("risk test 2", risk);
+
       // 3.
       if (ticketAddedTime > 9 && ticketAddedTime < 17) {
         risk -= 10;
@@ -97,19 +93,15 @@ class DetailsContainer extends Component {
         risk += 10;
       }
 
-      // console.log("risk test 3", risk);
-
       // 4.
       if (numOfComments > 3) {
         risk += 5;
       }
 
-      // console.log("risk test 4", risk);
-
+      // 5.
       if (risk < 5) {
         risk = 5;
       }
-
       if (risk > 95) {
         risk = 95;
       }
