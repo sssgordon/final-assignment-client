@@ -9,7 +9,8 @@ export default function Details(props) {
     return <p>Loading...</p>;
   }
 
-  const createCommentForm = props.thisUsername && (
+  const createCommentForm = (
+    // props.thisUsername &&
     <CreateCommentFormContainer ticketId={props.ticketId} />
   );
 
@@ -26,33 +27,45 @@ export default function Details(props) {
     props.comments.map(comment => {
       const author = comment.user ? comment.user.username : comment.author;
       return (
-        <p key={comment.id}>
-          {comment.content} by {author}
+        <p className="details-comment" key={comment.id}>
+          {author} says: {comment.content}
         </p>
       );
     })
   ) : (
-    <p>There is no comment at the moment.</p>
+    <p className="details-comment">There is no comment at the moment.</p>
   );
 
   return (
     <Fragment>
-      <h1>
-        Ticket from {props.username} for {eventName}
-      </h1>
-      {editTicket}
-      <h3
-        className={
-          props.risk > 75 ? "red" : props.risk > 25 ? "yellow" : "green"
-        }
-      >
-        Risk: {props.risk}%
-      </h3>
-      <h2>EUR {props.price}</h2>
-      <p>description: {props.description}</p>
-      <h2>Comments</h2>
-      {comments}
-      {createCommentForm}
+      <div className="details-page-wrapper">
+        <h1 className="details-title">Ticket from {props.username}</h1>
+        {editTicket}
+        <h3
+          className={
+            props.risk > 75
+              ? "details-risk red"
+              : props.risk > 25
+              ? "details-risk yellow"
+              : "details-risk green"
+          }
+        >
+          Fraud Risk: {props.risk}%
+        </h3>
+
+        <h2 className="details-price">EUR {props.price}</h2>
+        <div className="details-wrapper">
+          <div className="details-image-wrapper">
+            <img src={props.imageUrl} alt="ticket image" />
+          </div>
+          <p className="details-description">
+            description: {props.description}
+          </p>
+        </div>
+        <h2 className="details-price">Comments</h2>
+        {comments}
+        {createCommentForm}
+      </div>
     </Fragment>
   );
 }

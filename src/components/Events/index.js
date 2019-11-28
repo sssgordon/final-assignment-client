@@ -3,6 +3,7 @@ import Events from "./Events";
 import { connect } from "react-redux";
 import { getEvents } from "../../actions/events";
 import Pagination from "./Pagination";
+import "./Events.css";
 
 class EventsContainer extends Component {
   state = {
@@ -29,7 +30,9 @@ class EventsContainer extends Component {
 
     return (
       <div className="container mt-5">
-        <h1 className="text-primary mb-3">Events</h1>
+        <h1 className="text-dark mb-3 event-title" id="event-title">
+          Events
+        </h1>
         <Events
           events={currentEvents}
           loading={this.state.loading}

@@ -1,9 +1,10 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
+import "./CreateTicketForm.css";
 
 export default function CreateTicketForm(props) {
   return (
-    <Form onSubmit={props.onSubmit}>
+    <Form onSubmit={props.onSubmit} className="create-ticket-form">
       <Form.Group controlId="formGroupDescription">
         <Form.Label>Description</Form.Label>
         <Form.Control
@@ -34,7 +35,7 @@ export default function CreateTicketForm(props) {
           value={props.values.price}
         />
       </Form.Group>
-      <Button variant="primary" type="submit">
+      <Button variant="dark" type="submit">
         Create Ticket
       </Button>
     </Form>
