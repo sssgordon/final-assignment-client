@@ -24,12 +24,13 @@
   width: 900px;
   height: 400px;
   border: 1px black solid;
+  border-radius: 5px;
   margin: 20px auto 10px;
 }
 
 .details-image-wrapper {
   width: 450px;
-  height: 400px;
+  height: 399px;
   border-right: 1px black solid;
 }
 
