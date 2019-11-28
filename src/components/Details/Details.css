@@ -1,3 +1,48 @@
+.details-page-wrapper {
+  font-family: "Crimson Text", serif;
+}
+
+.details-title {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 50px;
+}
+
+.details-risk {
+  text-align: center;
+  font-size: 35px;
+}
+
+.details-price {
+  text-align: center;
+  font-size: 40px;
+}
+
+.details-wrapper {
+  display: flex;
+  width: 900px;
+  height: 400px;
+  border: 1px black solid;
+  margin: 20px auto 40px;
+}
+
+.details-image-wrapper {
+  width: 450px;
+  height: 400px;
+  border-right: 1px black solid;
+}
+
+.details-description {
+  margin: 30px;
+  font-size: 30px;
+}
+
+.details-comment {
+  text-align: center;
+  font-size: 25px;
+}
+
 .red {
   color: red;
 }
@@ -9,3 +54,5 @@
 .green {
   color: green;
 }
+
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");

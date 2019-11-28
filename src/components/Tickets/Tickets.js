@@ -10,7 +10,7 @@ export default function Tickets(props) {
   }
 
   const createTicket = props.user && (
-    <Accordion style={{ margin: "40px auto", width: "1000px" }}>
+    <Accordion style={{ margin: "40px auto", width: "940px" }}>
       <Card style={{ border: "black solid 1px", borderRadius: "5px" }}>
         <Card.Header>
           <Accordion.Toggle

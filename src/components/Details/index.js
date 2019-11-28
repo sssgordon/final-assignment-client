@@ -27,6 +27,7 @@ class DetailsContainer extends Component {
       this.props.tickets.length &&
       this.props.tickets.find(ticket => ticket.id == ticketId);
     const { description } = thisTicket;
+    const { imageUrl } = thisTicket;
     const username = thisTicket.user
       ? thisTicket.user.username
       : thisTicket.author;
@@ -124,6 +125,7 @@ class DetailsContainer extends Component {
           event={event}
           thisUsername={this.props.username}
           risk={fraudRisk}
+          imageUrl={imageUrl}
         />
       </Fragment>
     );
