@@ -1,0 +1,21 @@
+.signup-form-wrapper {
+  width: 700px;
+  height: 485px;
+  margin: 100px auto 200px;
+  border: black 1px solid;
+  border-radius: 5px;
+  padding: 40px;
+  font-size: 28px;
+  font-family: "Crimson Text", serif;
+}
+
+.btn.signup-form-btn {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.form-control.signup-input {
+  font-size: 20px;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");
