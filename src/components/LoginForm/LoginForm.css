@@ -1,0 +1,36 @@
+.login-form-wrapper {
+  width: 700px;
+  height: 430px;
+  margin: 100px auto 200px;
+  border: black 1px solid;
+  border-radius: 5px;
+  padding: 40px;
+  font-size: 28px;
+  font-family: "Crimson Text", serif;
+}
+
+.create-account-link {
+  font-size: 23px;
+  color: black;
+  text-decoration: underline;
+}
+
+.create-account-link:hover {
+  color: grey;
+  /* text-decoration: none; */
+}
+
+.btn.login-form-btn {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.create-account-link p {
+  margin-top: 35px;
+}
+
+.form-control.login-input {
+  font-size: 20px;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");
