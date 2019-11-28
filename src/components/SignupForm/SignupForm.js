@@ -5,7 +5,7 @@ import "./SignupForm.css";
 
 export default function SignupForm(props) {
   const success = props.user && (
-    <Alert variant="success">
+    <Alert variant="success" style={{ width: "700px", margin: "20px auto" }}>
       You are logged in! Click <Link to="/events">here</Link> to TicketExchange!
     </Alert>
   );
@@ -50,9 +50,9 @@ export default function SignupForm(props) {
           <Button variant="dark" type="submit" className="signup-form-btn">
             Sign up &amp; login
           </Button>
-          {success}
         </Form>
       </div>
+      {success}
     </Fragment>
   );
 }

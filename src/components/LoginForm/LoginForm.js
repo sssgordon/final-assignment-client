@@ -5,7 +5,7 @@ import "./LoginForm.css";
 
 export default function LoginForm(props) {
   const success = props.user && (
-    <Alert variant="success">
+    <Alert variant="success" style={{ width: "700px", margin: "20px auto" }}>
       You are logged in! Click <Link to="/events">here</Link> to TicketExchange!
     </Alert>
   );
@@ -43,9 +43,9 @@ export default function LoginForm(props) {
           <Link to="/signup" className="create-account-link">
             <p>Create account</p>
           </Link>
-          {success}
         </Form>
       </div>
+      {success}
     </Fragment>
   );
 }

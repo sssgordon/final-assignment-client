@@ -49,17 +49,34 @@
 }
 
 .pagination {
+  width: 225px;
   margin: 0 auto 100px;
+  text-align: center;
 }
 
-.page-link.page-number {
+.page-item {
+  border: black 3px solid;
+  margin: 10px;
+  width: 50px;
+  transition: 0.3s;
+}
+
+.page-item:hover {
+  border: grey 3px solid;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.page-number {
   color: black;
   font-size: 35px;
   font-family: "Crimson Text", serif;
+  text-align: center;
   margin: 10px;
 }
-.page-link.page-number:hover {
-  color: black;
+.page-number:hover {
+  color: grey;
+  text-decoration: none;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");

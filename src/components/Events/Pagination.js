@@ -10,18 +10,18 @@ export default function Pagination({ eventsPerPage, totalEvents, paginate }) {
   }
 
   return (
-    <nav className="pagination">
+    <nav className="pagination-nav">
       <ul className="pagination">
         {pageNumbers.map(number => (
-          <li key={number} className="page-item">
-            <a
-              href="#top"
-              onClick={() => paginate(number)}
-              className="page-number"
-            >
+          <a
+            href="#top"
+            onClick={() => paginate(number)}
+            className="page-number"
+          >
+            <li key={number} className="page-item">
               {number}
-            </a>
-          </li>
+            </li>
+          </a>
         ))}
       </ul>
     </nav>
