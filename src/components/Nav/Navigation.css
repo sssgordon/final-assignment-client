@@ -1,0 +1,28 @@
+.navbar-brand.brand {
+  font-family: "Crimson Text", serif;
+  font-size: 35px;
+  margin-left: 15px;
+}
+
+.btn.login-btn {
+  font-family: "Crimson Text", serif;
+  border-radius: 0;
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+.btn.welcome {
+  font-family: "Crimson Text", serif;
+  font-weight: bold;
+  margin-right: 15px;
+  border-radius: 0;
+}
+.btn.welcome:hover {
+  cursor: default;
+}
+
+.navbar.bar {
+  border-bottom: lightgray solid 1px;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");
