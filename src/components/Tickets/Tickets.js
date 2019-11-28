@@ -31,9 +31,17 @@ export default function Tickets(props) {
       {createTicket}
       <ul>
         {props.tickets.map((ticket, index) => {
+          const risk = props.risk(ticket.id);
           return (
             <Link to={`/tickets/${ticket.id}`} key={index}>
-              <li key={index}>{ticket.description}</li>
+              <li
+                key={index}
+                className={
+                  risk > 75 ? "red" : props.risk > 25 ? "yellow" : "green"
+                }
+              >
+                {ticket.description}
+              </li>
             </Link>
           );
         })}

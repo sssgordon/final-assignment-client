@@ -49,7 +49,7 @@ class DetailsContainer extends Component {
       event &&
       event.tickets
         .map(ticket => parseFloat(ticket.price))
-        .reduce((acc, cur) => acc + cur);
+        .reduce((acc, cur) => acc + cur, 0);
     const averageTicketPrice = totalTicketsPrice / numOfEventTickets;
 
     // 3.

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import Tickets from "./Tickets";
 import { connect } from "react-redux";
 import { getEvents } from "../../actions/events";
-import { getTickets } from "../../actions/tickets";
+import { getTickets, getUserTickets } from "../../actions/tickets";
 import { Link } from "react-router-dom";
 
 class TicketsContainer extends Component {
@@ -27,6 +27,58 @@ class TicketsContainer extends Component {
     const eventName = event.name;
     const eventId = event.id;
 
+    // risk fraud algorithm
+    const risk = ticketId => {
+      const ticket = this.props.tickets.find(ticket => ticket.id == ticketId);
+
+      let risk = 0;
+      // 1.
+      this.props.getUserTickets(ticketId);
+      const numOfUserTickets =
+        this.props.userTickets && this.props.userTickets.length;
+      if (numOfUserTickets === 1) {
+        risk += 10;
+      }
+      // 2.
+      const numOfEventTickets = event.tickets.length;
+      const totalTicketsPrice = event.tickets
+        .map(ticket => parseFloat(ticket.price))
+        .reduce((acc, cur) => acc + cur, 0);
+      const averageTicketPrice = totalTicketsPrice / numOfEventTickets;
+      const difference = ticket.price - averageTicketPrice;
+      if (difference > 0) {
+        const decimalMoreExp = difference / ticket.price;
+        const percentageMoreExp = decimalMoreExp * 100;
+        percentageMoreExp > 10 ? (risk -= 10) : (risk -= percentageMoreExp);
+      } else {
+        const decimalCheaper = Math.abs(difference) / ticket.price;
+        const percentageCheaper = decimalCheaper * 100;
+        risk += percentageCheaper;
+      }
+      // 3.
+      const ticketAddedTime = ticket.createdAt.slice(11, 13);
+      if (ticketAddedTime > 9 && ticketAddedTime < 17) {
+        risk -= 10;
+      } else {
+        risk += 10;
+      }
+      // 4.
+      const numOfComments = ticket.comments.length;
+      if (numOfComments > 3) {
+        risk += 5;
+      }
+      // 5.
+      if (risk < 5) {
+        risk = 5;
+      }
+      if (risk > 95) {
+        risk = 95;
+      }
+
+      return Math.ceil(risk);
+    };
+    // console.log("risky test", risk(1));
+
     return (
       <Fragment>
         <Tickets
@@ -34,6 +86,7 @@ class TicketsContainer extends Component {
           user={this.props.user}
           eventName={eventName}
           eventId={eventId}
+          risk={risk}
         />
         {noTicket}
       </Fragment>
@@ -42,9 +95,16 @@ class TicketsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  return { tickets: state.tickets, user: state.user, events: state.events };
+  return {
+    tickets: state.tickets,
+    user: state.user,
+    events: state.events,
+    userTickets: state.risk.userTickets
+  };
 };
 
-export default connect(mapStateToProps, { getTickets, getEvents })(
-  TicketsContainer
-);
+export default connect(mapStateToProps, {
+  getTickets,
+  getEvents,
+  getUserTickets
+})(TicketsContainer);
