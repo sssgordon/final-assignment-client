@@ -6,7 +6,7 @@ import "./LoginForm.css";
 export default function LoginForm(props) {
   const success = props.user && (
     <Alert variant="success" style={{ width: "700px", margin: "20px auto" }}>
-      You are logged in! Click <Link to="/events">here</Link> to TicketExchange!
+      You are logged in! Click <Link to="/">here</Link> to TicketExchange!
     </Alert>
   );
 

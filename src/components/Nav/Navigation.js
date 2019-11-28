@@ -20,7 +20,7 @@ function NavButton(props) {
 export default function Navigation(props) {
   return (
     <Navbar bg="light" expand="lg" className="bar">
-      <Link to="/events">
+      <Link to="/">
         <Navbar.Brand className="brand">TicketExchange</Navbar.Brand>
       </Link>
       <NavButton jwt={props.jwt} />
