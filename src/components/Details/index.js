@@ -8,11 +8,17 @@ import { getEvents } from "../../actions/events";
 import { getUserTickets } from "../../actions/tickets";
 
 class DetailsContainer extends Component {
+  state = {
+    loading: null
+  };
+
   componentDidMount = () => {
-    this.props.getAllTickets();
-    this.props.getComments(this.props.match.params.ticketId);
+    this.setState({ loading: true });
     this.props.getEvents();
     this.props.getUserTickets(this.props.match.params.ticketId);
+    this.props.getAllTickets();
+    this.props.getComments(this.props.match.params.ticketId);
+    this.setState({ loading: false });
   };
 
   render() {
@@ -31,17 +37,28 @@ class DetailsContainer extends Component {
       this.props.events.find(event => event.id == thisTicket.eventId);
 
     // fraud risk
+    console.log("ticket test", this.props.tickets.length);
     // 1.
     const numOfUserTickets =
-      this.props.risk.userTickets && this.props.risk.userTickets.length;
+      this.props.tickets.length &&
+      this.props.tickets.filter(ticket => ticket.userId == thisTicket.userId)
+        .length;
 
+    console.log("num of user tickets", numOfUserTickets);
     // 2.
-    const numOfEventTickets = event && event.tickets.length;
+    const numOfEventTickets =
+      this.props.tickets.length &&
+      this.props.tickets.filter(ticket => ticket.eventId == thisTicket.eventId)
+        .length;
+
+    console.log("num of event tickets", numOfEventTickets);
     const totalTicketsPrice =
-      event &&
-      event.tickets
+      this.props.tickets.length &&
+      this.props.tickets
+        .filter(ticket => ticket.eventId == thisTicket.eventId)
         .map(ticket => parseFloat(ticket.price))
         .reduce((acc, cur) => acc + cur, 0);
+
     const averageTicketPrice = totalTicketsPrice / numOfEventTickets;
 
     // 3.
@@ -49,7 +66,6 @@ class DetailsContainer extends Component {
 
     // 4.
     const numOfComments = thisTicket.comments && thisTicket.comments.length;
-    // console.log("comment length test", numOfComments);
 
     const risk = () => {
       let risk = 0;
@@ -58,6 +74,7 @@ class DetailsContainer extends Component {
       if (numOfUserTickets === 1) {
         risk += 10;
       }
+
       // 2.
       const difference = price - averageTicketPrice;
       if (difference > 0) {
@@ -69,6 +86,7 @@ class DetailsContainer extends Component {
         const percentageCheaper = decimalCheaper * 100;
         risk += percentageCheaper;
       }
+
       // 3.
       if (ticketAddedTime > 9 && ticketAddedTime < 17) {
         risk -= 10;
@@ -81,12 +99,10 @@ class DetailsContainer extends Component {
         risk += 5;
       }
 
-      console.log("risk test", risk);
-
+      // 5.
       if (risk < 5) {
         risk = 5;
       }
-
       if (risk > 95) {
         risk = 95;
       }
@@ -99,6 +115,7 @@ class DetailsContainer extends Component {
     return (
       <Fragment>
         <Details
+          loading={this.state.loading}
           description={description}
           username={username}
           price={price}
@@ -118,8 +135,7 @@ const mapStateToProps = state => {
     tickets: state.tickets,
     comments: state.comments,
     events: state.events,
-    username: state.user.username,
-    risk: state.risk
+    username: state.user.username
   };
 };
 
