@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Card, Button, Accordion } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import CreateEventFormContainer from "../CreateEventForm";
+import "./Events.css";
 
 export default function Events({ events, loading, user }) {
   const createEvent = user && (
@@ -32,9 +33,9 @@ export default function Events({ events, loading, user }) {
         {events.map(event => {
           return (
             <Card
-              className="bg-dark text-white"
+              className="bg-dark text-white event-card"
               key={event.id}
-              style={{ width: "80%", margin: "30px auto" }}
+              style={{ border: "black solid 1px", borderRadius: "5px" }}
             >
               <Link
                 to={`/events/${event.id}`}
@@ -42,9 +43,9 @@ export default function Events({ events, loading, user }) {
               >
                 <Card.Img src={event.imageUrl} alt="Card image" />
                 <Card.ImgOverlay>
-                  <Card.Title>{event.name}</Card.Title>
-                  <Card.Text>{event.description}</Card.Text>
-                  <Card.Text>{event.date.slice(0, 10)}</Card.Text>
+                  <h1 className="event-name">{event.name}</h1>
+                  <br></br>
+                  <h3 className="event-date">{event.date.slice(0, 10)}</h3>
                 </Card.ImgOverlay>
               </Link>
             </Card>

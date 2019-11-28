@@ -1,0 +1,38 @@
+.event-card {
+  width: 1000px;
+  height: 330px;
+  margin: 35px auto;
+  transition: 0.3s;
+}
+
+.event-card:hover {
+  width: 1040px;
+  height: 370px;
+  transition: 0.3s;
+}
+
+.event-title {
+  font-family: "Crimson Text", serif;
+  font-size: 55px;
+  position: relative;
+  left: 53px;
+  text-align: none;
+}
+
+.event-name {
+  font-family: "Crimson Text", serif;
+  color: white;
+  font-size: 50px;
+  background: rgba(0, 0, 0, 0.4);
+  display: inline-block;
+}
+
+.event-date {
+  font-family: "Crimson Text", serif;
+  font-size: 30px;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  display: inline-block;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");
