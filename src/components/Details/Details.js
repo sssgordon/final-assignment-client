@@ -27,8 +27,6 @@ export default function Details(props) {
     <p>There is no comment at the moment.</p>
   );
 
-  // fraud risk
-
   return (
     <Fragment>
       <h1>
