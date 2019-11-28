@@ -44,7 +44,7 @@ export default function Tickets(props) {
             const author = ticket.user ? ticket.user.username : ticket.author;
             return (
               <Link
-                style={{ display: "inline-block" }}
+                className="ticket-link"
                 to={{
                   pathname: `/tickets/${ticket.id}`,
                   state: { risk: risk }
@@ -52,15 +52,23 @@ export default function Tickets(props) {
                 key={index}
               >
                 <Card
-                  border={
-                    risk > 75 ? "danger" : risk > 25 ? "warning" : "success"
+                  // risk > 75 ? "ticket-card-red" : risk > 25 ? "ticket-card-yellow" : "success"
+                  className={
+                    risk > 75
+                      ? "ticket-card-red"
+                      : risk > 25
+                      ? "ticket-card-yellow"
+                      : "ticket-card-green"
                   }
-                  style={{ width: "18rem" }}
                 >
-                  <Card.Header>{author}</Card.Header>
+                  <Card.Header className="ticket-author">{author}</Card.Header>
                   <Card.Body>
-                    <Card.Title>EUR {ticket.price}</Card.Title>
-                    <Card.Text>{ticket.description}</Card.Text>
+                    <Card.Title className="ticket-price">
+                      EUR {ticket.price}
+                    </Card.Title>
+                    <Card.Text className="ticket-description">
+                      {ticket.description}
+                    </Card.Text>
                   </Card.Body>
                 </Card>
               </Link>

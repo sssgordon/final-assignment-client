@@ -30,13 +30,87 @@
 }
 
 .tickets-wrapper {
-  width: 1000px;
+  width: 1400px;
   margin: 0 auto;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 0 190px;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+}
+
+.ticket-link {
+  display: inline-block;
+}
+
+.ticket-link:hover {
+  text-decoration: none;
+}
+
+.card.ticket-card-red {
+  width: 430px;
+  height: 500px;
+  margin: 40px;
+  border: black 1px solid;
+  transition: 0.3s;
+}
+
+.card.ticket-card-red:hover {
+  width: 435px;
+  height: 505px;
+  margin: 35px;
+  border: rgba(238, 0, 0, 0.89) 2px solid;
+  transition: 0.3s;
+}
+
+.card.ticket-card-yellow {
+  width: 430px;
+  height: 500px;
+  margin: 40px;
+  border: black 1px solid;
+  transition: 0.3s;
+}
+
+.card.ticket-card-yellow:hover {
+  width: 435px;
+  height: 505px;
+  margin: 35px;
+  border: rgb(255, 217, 0) 2px solid;
+  transition: 0.3s;
+}
+
+.card.ticket-card-green {
+  width: 430px;
+  height: 500px;
+  margin: 40px;
+  border: black 1px solid;
+  transition: 0.3s;
+}
+
+.card.ticket-card-green:hover {
+  width: 435px;
+  height: 505px;
+  margin: 35px;
+  border: rgb(0, 175, 0) 2px solid;
+  transition: 0.3s;
+}
+
+.ticket-author {
+  color: black;
+  text-align: center;
+  font-size: 45px;
+}
+
+.card-title.ticket-price {
+  color: black;
+  text-align: center;
+  font-size: 60px;
+}
+
+.ticket-description {
+  color: black;
+  text-align: left;
+  font-size: 25px;
+  margin: 25px;
 }
 
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");
