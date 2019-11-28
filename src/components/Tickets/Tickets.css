@@ -16,6 +16,13 @@
   text-align: center;
 }
 
+.no-ticket {
+  font-family: "Crimson Text", serif;
+  font-size: 30px;
+  margin-top: 30px;
+  text-align: center;
+}
+
 .btn-link.create-ticket {
   font-family: "Crimson Text", serif;
   font-size: 25px;

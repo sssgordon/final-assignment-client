@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { getEvents } from "../../actions/events";
 import { getTickets, getUserTickets } from "../../actions/tickets";
 import { Link } from "react-router-dom";
+import "./Tickets.css";
 
 class TicketsContainer extends Component {
   componentDidMount = () => {
@@ -18,7 +19,7 @@ class TicketsContainer extends Component {
     }
 
     const noTicket = !this.props.tickets.length && (
-      <p>There is no ticket for this event yet!</p>
+      <p className="no-ticket"> There is no ticket for this event yet!</p>
     );
 
     const event = this.props.events.find(

@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import "./Tickets.css";
 
 export default function Tickets(props) {
-  if (!props.tickets) {
-    return <p>There is no ticket for this event so far!</p>;
-  }
+  // if (!props.tickets) {
+  //   return <p>There is no ticket for this event so far!</p>;
+  // }
 
   const createTicket = props.user && (
     <Accordion style={{ margin: "40px auto", width: "940px" }}>
