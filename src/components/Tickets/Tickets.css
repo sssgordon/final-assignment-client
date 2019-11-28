@@ -29,4 +29,14 @@
   color: grey;
 }
 
+.tickets-wrapper {
+  width: 1000px;
+  margin: 0 auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");

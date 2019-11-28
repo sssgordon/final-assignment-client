@@ -9,7 +9,7 @@ export default function Tickets(props) {
     return <p>There is no ticket for this event so far!</p>;
   }
 
-  const createTicket = (
+  const createTicket = props.user && (
     <Accordion style={{ margin: "40px auto", width: "1000px" }}>
       <Card style={{ border: "black solid 1px", borderRadius: "5px" }}>
         <Card.Header>
@@ -38,7 +38,42 @@ export default function Tickets(props) {
         <h3 className="tickets-page-date">{props.eventDate}</h3>
         <h4 className="tickets-page-description">{props.eventDescription}</h4>
         {createTicket}
-        <ul>
+        <div className="tickets-wrapper">
+          {props.tickets.map((ticket, index) => {
+            const risk = props.risk(ticket.id);
+            const author = ticket.user ? ticket.user.username : ticket.author;
+            return (
+              <Link
+                style={{ display: "inline-block" }}
+                to={{
+                  pathname: `/tickets/${ticket.id}`,
+                  state: { risk: risk }
+                }}
+                key={index}
+              >
+                <Card
+                  border={
+                    risk > 75 ? "danger" : risk > 25 ? "warning" : "success"
+                  }
+                  style={{ width: "18rem" }}
+                >
+                  <Card.Header>{author}</Card.Header>
+                  <Card.Body>
+                    <Card.Title>EUR {ticket.price}</Card.Title>
+                    <Card.Text>{ticket.description}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </Fragment>
+  );
+}
+
+{
+  /* <ul>
           {props.tickets.map((ticket, index) => {
             const risk = props.risk(ticket.id);
             const author = ticket.user ? ticket.user.username : ticket.author;
@@ -61,8 +96,5 @@ export default function Tickets(props) {
               </Link>
             );
           })}
-        </ul>
-      </div>
-    </Fragment>
-  );
+        </ul> */
 }
