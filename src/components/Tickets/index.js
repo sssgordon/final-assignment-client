@@ -40,10 +40,12 @@ class TicketsContainer extends Component {
         risk += 10;
       }
       // 2.
-      const numOfEventTickets = event.tickets.length;
-      const totalTicketsPrice = event.tickets
-        .map(ticket => parseFloat(ticket.price))
-        .reduce((acc, cur) => acc + cur, 0);
+      const numOfEventTickets = event.tickets && event.tickets.length;
+      const totalTicketsPrice =
+        event.tickets &&
+        event.tickets
+          .map(ticket => parseFloat(ticket.price))
+          .reduce((acc, cur) => acc + cur, 0);
       const averageTicketPrice = totalTicketsPrice / numOfEventTickets;
       const difference = ticket.price - averageTicketPrice;
       if (difference > 0) {
