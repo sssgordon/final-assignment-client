@@ -40,69 +40,70 @@ class DetailsContainer extends Component {
 
     // fraud risk
     // 1.
-    const numOfUserTickets =
-      this.props.risk.userTickets && this.props.risk.userTickets.length;
+    // const numOfUserTickets =
+    //   this.props.risk.userTickets && this.props.risk.userTickets.length;
 
-    // 2.
-    const numOfEventTickets = event && event.tickets.length;
-    const totalTicketsPrice =
-      event &&
-      event.tickets
-        .map(ticket => parseFloat(ticket.price))
-        .reduce((acc, cur) => acc + cur, 0);
-    const averageTicketPrice = totalTicketsPrice / numOfEventTickets;
+    // // 2.
+    // const numOfEventTickets = event && event.tickets.length;
+    // const totalTicketsPrice =
+    //   event &&
+    //   event.tickets
+    //     .map(ticket => parseFloat(ticket.price))
+    //     .reduce((acc, cur) => acc + cur, 0);
+    // const averageTicketPrice = totalTicketsPrice / numOfEventTickets;
 
-    // 3.
-    const ticketAddedTime = thisTicket && thisTicket.createdAt.slice(11, 13);
+    // // 3.
+    // const ticketAddedTime = thisTicket && thisTicket.createdAt.slice(11, 13);
 
-    // 4.
-    const numOfComments = thisTicket.comments && thisTicket.comments.length;
-    // console.log("comment length test", numOfComments);
+    // // 4.
+    // const numOfComments = thisTicket.comments && thisTicket.comments.length;
+    // // console.log("comment length test", numOfComments);
 
-    const risk = () => {
-      let risk = 0;
+    // const risk = () => {
+    //   let risk = 0;
 
-      // 1.
-      if (numOfUserTickets === 1) {
-        risk += 10;
-      }
-      // 2.
-      const difference = price - averageTicketPrice;
-      if (difference > 0) {
-        const decimalMoreExp = difference / price;
-        const percentageMoreExp = decimalMoreExp * 100;
-        percentageMoreExp > 10 ? (risk -= 10) : (risk -= percentageMoreExp);
-      } else {
-        const decimalCheaper = Math.abs(difference) / price;
-        const percentageCheaper = decimalCheaper * 100;
-        risk += percentageCheaper;
-      }
-      // 3.
-      if (ticketAddedTime > 9 && ticketAddedTime < 17) {
-        risk -= 10;
-      } else {
-        risk += 10;
-      }
+    //   // 1.
+    //   if (numOfUserTickets === 1) {
+    //     risk += 10;
+    //   }
+    //   // 2.
+    //   const difference = price - averageTicketPrice;
+    //   if (difference > 0) {
+    //     const decimalMoreExp = difference / price;
+    //     const percentageMoreExp = decimalMoreExp * 100;
+    //     percentageMoreExp > 10 ? (risk -= 10) : (risk -= percentageMoreExp);
+    //   } else {
+    //     const decimalCheaper = Math.abs(difference) / price;
+    //     const percentageCheaper = decimalCheaper * 100;
+    //     risk += percentageCheaper;
+    //   }
+    //   // 3.
+    //   if (ticketAddedTime > 9 && ticketAddedTime < 17) {
+    //     risk -= 10;
+    //   } else {
+    //     risk += 10;
+    //   }
 
-      // 4.
-      if (numOfComments > 3) {
-        risk += 5;
-      }
+    //   // 4.
+    //   if (numOfComments > 3) {
+    //     risk += 5;
+    //   }
 
-      console.log("risk test", risk);
+    //   console.log("risk test", risk);
 
-      if (risk < 5) {
-        risk = 5;
-      }
+    //   if (risk < 5) {
+    //     risk = 5;
+    //   }
 
-      if (risk > 95) {
-        risk = 95;
-      }
+    //   if (risk > 95) {
+    //     risk = 95;
+    //   }
 
-      return Math.ceil(risk);
-    };
+    //   return Math.ceil(risk);
+    // };
 
-    const fraudRisk = risk();
+    // const fraudRisk = risk();
+    const { risk } = this.props.location.state;
 
     return (
       <Fragment>
@@ -114,8 +115,9 @@ class DetailsContainer extends Component {
           ticketId={ticketId}
           event={event}
           thisUsername={this.props.username}
-          userTickets={this.props.risk.userTickets}
-          risk={fraudRisk}
+          risk={risk}
+          // userTickets={this.props.risk.userTickets}
+          // risk={fraudRisk}
         />
       </Fragment>
     );
@@ -127,8 +129,8 @@ const mapStateToProps = state => {
     tickets: state.tickets,
     comments: state.comments,
     events: state.events,
-    username: state.user.username,
-    risk: state.risk
+    username: state.user.username
+    // risk: state.risk
   };
 };
 

@@ -33,7 +33,10 @@ export default function Tickets(props) {
         {props.tickets.map((ticket, index) => {
           const risk = props.risk(ticket.id);
           return (
-            <Link to={`/tickets/${ticket.id}`} key={index}>
+            <Link
+              to={{ pathname: `/tickets/${ticket.id}`, state: { risk: risk } }}
+              key={index}
+            >
               <li
                 key={index}
                 className={
