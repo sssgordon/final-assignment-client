@@ -47,4 +47,18 @@
   color: grey;
 }
 
+.pagination {
+  margin: 0 auto 100px;
+}
+
+.page-link.page-number {
+  color: black;
+  font-size: 35px;
+  font-family: "Crimson Text", serif;
+  margin: 10px;
+}
+.page-link.page-number:hover {
+  color: black;
+}
+
 @import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");

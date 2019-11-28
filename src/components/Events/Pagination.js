@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Events.css";
 
 export default function Pagination({ eventsPerPage, totalEvents, paginate }) {
   const pageNumbers = [];
@@ -9,17 +10,17 @@ export default function Pagination({ eventsPerPage, totalEvents, paginate }) {
   }
 
   return (
-    <nav>
+    <nav className="pagination">
       <ul className="pagination">
         {pageNumbers.map(number => (
           <li key={number} className="page-item">
-            <Link
-              to="/events/#"
+            <a
+              href="#top"
               onClick={() => paginate(number)}
-              className="page-link"
+              className="page-link page-number"
             >
               {number}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>

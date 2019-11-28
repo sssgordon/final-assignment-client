@@ -5,7 +5,7 @@ import CreateEventFormContainer from "../CreateEventForm";
 import "./Events.css";
 
 export default function Events({ events, loading, user }) {
-  const createEvent = (
+  const createEvent = user && (
     <Accordion style={{ margin: "40px 0 20px 55px", width: "1000px" }}>
       <Card style={{ border: "black solid 1px", borderRadius: "5px" }}>
         <Card.Header>
