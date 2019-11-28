@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 import "./Details.css";
 
 export default function Details(props) {
+  if (props.loading) {
+    return <p>Loading...</p>;
+  }
+
   const eventName = props.event && props.event.name;
 
   const editTicket =

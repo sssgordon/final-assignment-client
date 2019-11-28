@@ -1,49 +1,52 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component } from "react";
 import Events from "./Events";
-import Pagination from "./Pagination";
 import { connect } from "react-redux";
-// import { getEvents } from "../../actions/events";
-import request from "superagent";
+import { getEvents } from "../../actions/events";
+import Pagination from "./Pagination";
 
-function EventsContainer(props) {
-  const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [eventsPerPage] = useState(9);
+class EventsContainer extends Component {
+  state = {
+    loading: false,
+    currentPage: 1,
+    eventsPerPage: 9
+  };
 
-  useEffect(() => {
-    const fetchEvents = async () => {
-      setLoading(true);
-      const response = await request("http://localhost:4000/events");
-      setEvents(response.body);
-      setLoading(false);
-    };
-    fetchEvents();
-  }, []);
+  componentDidMount = () => {
+    this.setState({ loading: true });
+    this.props.getEvents();
+    this.setState({ loading: false });
+  };
 
-  // Get current posts
-  const indexOfLastEvent = currentPage * eventsPerPage;
-  const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
-  const currentEvents = events.slice(indexOfFirstEvent, indexOfLastEvent);
+  render() {
+    const indexOfLastEvent = this.state.currentPage * this.state.eventsPerPage;
+    const indexOfFirstEvent = indexOfLastEvent - this.state.eventsPerPage;
+    const currentEvents = this.props.events.slice(
+      indexOfFirstEvent,
+      indexOfLastEvent
+    );
 
-  // Change page
-  const paginate = pageNumber => setCurrentPage(pageNumber);
+    const paginate = pageNumber => this.setState({ currentPage: pageNumber });
 
-  return (
-    <div className="container mt-5">
-      <h1 className="text-primary mb-3">Events</h1>
-      <Events events={currentEvents} loading={loading} user={props.user} />
-      <Pagination
-        eventsPerPage={eventsPerPage}
-        totalEvents={events.length}
-        paginate={paginate}
-      />
-    </div>
-  );
+    return (
+      <div className="container mt-5">
+        <h1 className="text-primary mb-3">Events</h1>
+        <Events
+          events={currentEvents}
+          loading={this.state.loading}
+          user={this.props.user}
+        />
+        <Pagination
+          eventsPerPage={this.state.eventsPerPage}
+          totalEvents={this.props.events.length}
+          paginate={paginate}
+        />
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {
-  return { user: state.user };
+  return { events: state.events, user: state.user }; // need to map user reducer for create event form
 };
 
-export default connect(mapStateToProps)(EventsContainer);
+export default connect(mapStateToProps, { getEvents })(EventsContainer);

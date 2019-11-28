@@ -8,11 +8,17 @@ import { getEvents } from "../../actions/events";
 import { getUserTickets } from "../../actions/tickets";
 
 class DetailsContainer extends Component {
+  state = {
+    loading: null
+  };
+
   componentDidMount = () => {
-    this.props.getAllTickets();
-    this.props.getComments(this.props.match.params.ticketId);
+    this.setState({ loading: true });
     this.props.getEvents();
     this.props.getUserTickets(this.props.match.params.ticketId);
+    this.props.getAllTickets();
+    this.props.getComments(this.props.match.params.ticketId);
+    this.setState({ loading: false });
   };
 
   render() {
@@ -29,19 +35,32 @@ class DetailsContainer extends Component {
     const event =
       this.props.events.length &&
       this.props.events.find(event => event.id == thisTicket.eventId);
-
     // fraud risk
+    console.log("ticket test", this.props.tickets.length);
     // 1.
     const numOfUserTickets =
-      this.props.risk.userTickets && this.props.risk.userTickets.length;
-
+      this.props.tickets.length &&
+      this.props.tickets.filter(ticket => ticket.userId == thisTicket.userId)
+        .length;
+    // this.props.risk.userTickets && this.props.risk.userTickets.length;
+    console.log("num of user tickets", numOfUserTickets);
     // 2.
-    const numOfEventTickets = event && event.tickets.length;
+    const numOfEventTickets =
+      this.props.tickets.length &&
+      this.props.tickets.filter(ticket => ticket.eventId == thisTicket.eventId)
+        .length;
+    // event && event.tickets.length;
+    console.log("num of event tickets", numOfEventTickets);
     const totalTicketsPrice =
-      event &&
-      event.tickets
+      this.props.tickets.length &&
+      this.props.tickets
+        .filter(ticket => ticket.eventId == thisTicket.eventId)
         .map(ticket => parseFloat(ticket.price))
         .reduce((acc, cur) => acc + cur, 0);
+    // event &&
+    // event.tickets
+    //   .map(ticket => parseFloat(ticket.price))
+    //   .reduce((acc, cur) => acc + cur, 0);
     const averageTicketPrice = totalTicketsPrice / numOfEventTickets;
 
     // 3.
@@ -58,6 +77,7 @@ class DetailsContainer extends Component {
       if (numOfUserTickets === 1) {
         risk += 10;
       }
+      // console.log("risk test 1", risk);
       // 2.
       const difference = price - averageTicketPrice;
       if (difference > 0) {
@@ -69,6 +89,7 @@ class DetailsContainer extends Component {
         const percentageCheaper = decimalCheaper * 100;
         risk += percentageCheaper;
       }
+      // console.log("risk test 2", risk);
       // 3.
       if (ticketAddedTime > 9 && ticketAddedTime < 17) {
         risk -= 10;
@@ -76,12 +97,14 @@ class DetailsContainer extends Component {
         risk += 10;
       }
 
+      // console.log("risk test 3", risk);
+
       // 4.
       if (numOfComments > 3) {
         risk += 5;
       }
 
-      console.log("risk test", risk);
+      // console.log("risk test 4", risk);
 
       if (risk < 5) {
         risk = 5;
@@ -99,6 +122,7 @@ class DetailsContainer extends Component {
     return (
       <Fragment>
         <Details
+          loading={this.state.loading}
           description={description}
           username={username}
           price={price}
