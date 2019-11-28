@@ -40,6 +40,7 @@
   font-size: 25px;
   margin: 0;
   color: black;
+  text-decoration: none;
 }
 
 .btn-link.create-event:hover {

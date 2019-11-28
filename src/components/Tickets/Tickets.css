@@ -1,0 +1,32 @@
+.tickets-page {
+  font-family: "Crimson Text", serif;
+}
+
+.tickets-page-title {
+  font-size: 55px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.tickets-page-date {
+  text-align: center;
+}
+
+.tickets-page-description {
+  text-align: center;
+}
+
+.btn-link.create-ticket {
+  font-family: "Crimson Text", serif;
+  font-size: 25px;
+  margin: 0;
+  color: black;
+  text-decoration: none;
+}
+
+.btn-link.create-ticket:hover {
+  text-decoration: none;
+  color: grey;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");

@@ -17,7 +17,7 @@ export default function Pagination({ eventsPerPage, totalEvents, paginate }) {
             <a
               href="#top"
               onClick={() => paginate(number)}
-              className="page-link page-number"
+              className="page-number"
             >
               {number}
             </a>

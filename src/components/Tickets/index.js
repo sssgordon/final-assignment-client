@@ -25,6 +25,8 @@ class TicketsContainer extends Component {
       event => event.id == this.props.match.params.eventId
     );
     const eventName = event.name;
+    const eventDescription = event.description;
+    const eventDate = event.date.slice(0, 10);
     const eventId = event.id;
 
     // risk fraud algorithm
@@ -87,6 +89,8 @@ class TicketsContainer extends Component {
           tickets={this.props.tickets}
           user={this.props.user}
           eventName={eventName}
+          eventDescription={eventDescription}
+          eventDate={eventDate}
           eventId={eventId}
           risk={risk}
         />

@@ -9,7 +9,8 @@ export default function Details(props) {
     return <p>Loading...</p>;
   }
 
-  const createCommentForm = props.thisUsername && (
+  const createCommentForm = (
+    // props.thisUsername &&
     <CreateCommentFormContainer ticketId={props.ticketId} />
   );
 
