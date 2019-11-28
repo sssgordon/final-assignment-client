@@ -49,6 +49,7 @@ export const createTicket = (
 ) => dispatch => {
   request
     .post(`${baseUrl}/tickets`)
+    .set("Authorization", `Bearer ${jwt}`)
     .send({ description, imageUrl, price, eventId, jwt })
     .then(response => {
       const author = response.body.author;
@@ -62,10 +63,17 @@ export const createTicket = (
 };
 
 // edit ticket
-export const editTicket = (data, ticketId) => dispatch => {
+export const editTicket = (
+  description,
+  imageUrl,
+  price,
+  ticketId,
+  jwt
+) => dispatch => {
   request
     .put(`${baseUrl}/edit/tickets/${ticketId}`)
-    .send(data)
+    .set("Authorization", `Bearer ${jwt}`)
+    .send({ description, imageUrl, price })
     .catch(console.error);
 };
 

@@ -35,10 +35,17 @@ function newEvent(payload) {
   };
 }
 
-export const createEvent = data => dispatch => {
+export const createEvent = (
+  name,
+  description,
+  imageUrl,
+  date,
+  jwt
+) => dispatch => {
   request
     .post(`${baseUrl}/events`)
-    .send(data)
+    .set("Authorization", `Bearer ${jwt}`)
+    .send({ name, description, imageUrl, date })
     .then(response => {
       const action = newEvent(response.body);
 

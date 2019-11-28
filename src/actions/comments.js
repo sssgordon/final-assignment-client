@@ -33,6 +33,7 @@ function newComment(payload) {
 export const createComment = (content, ticketId, jwt) => dispatch => {
   request
     .post(`${baseUrl}/comments`)
+    .set("Authorization", `Bearer ${jwt}`)
     .send({ content, ticketId, jwt })
     .then(response => {
       // console.log("response body test", response.body);

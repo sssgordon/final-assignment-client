@@ -63,7 +63,7 @@ class TicketsContainer extends Component {
         risk += 10;
       }
       // 4.
-      const numOfComments = ticket.comments.length;
+      const numOfComments = ticket.comments && ticket.comments.length;
       if (numOfComments > 3) {
         risk += 5;
       }

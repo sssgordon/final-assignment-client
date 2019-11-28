@@ -19,8 +19,8 @@ class CreateEventFormContainer extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-
-    this.props.createEvent(this.state);
+    const { name, description, imageUrl, date } = this.state;
+    this.props.createEvent(name, description, imageUrl, date, this.props.jwt);
 
     this.setState({
       name: "",
@@ -43,4 +43,10 @@ class CreateEventFormContainer extends Component {
   }
 }
 
-export default connect(null, { createEvent })(CreateEventFormContainer);
+const mapStateToProps = state => {
+  return { jwt: state.user.jwt };
+};
+
+export default connect(mapStateToProps, { createEvent })(
+  CreateEventFormContainer
+);

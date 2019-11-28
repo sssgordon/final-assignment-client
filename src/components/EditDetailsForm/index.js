@@ -25,7 +25,14 @@ class EditDetailsFormContainer extends Component {
     event.preventDefault();
 
     const { ticketId } = this.props.match.params;
-    this.props.editTicket(this.state, ticketId);
+    const { description, imageUrl, price } = this.state;
+    this.props.editTicket(
+      description,
+      imageUrl,
+      price,
+      ticketId,
+      this.props.jwt
+    );
 
     this.change();
 
@@ -51,4 +58,10 @@ class EditDetailsFormContainer extends Component {
   }
 }
 
-export default connect(null, { editTicket })(EditDetailsFormContainer);
+const mapStateToProps = state => {
+  return { jwt: state.user.jwt };
+};
+
+export default connect(mapStateToProps, { editTicket })(
+  EditDetailsFormContainer
+);
