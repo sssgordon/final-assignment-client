@@ -34,6 +34,12 @@
   border-right: 1px black solid;
 }
 
+.details-image-wrapper img {
+  display: block;
+  width: 99%;
+  margin: 0 auto;
+}
+
 .details-description {
   margin: 30px;
   font-size: 30px;

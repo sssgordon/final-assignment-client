@@ -15,23 +15,24 @@ export default function Details(props) {
 
   const eventName = props.event && props.event.name;
 
-  const editTicket = (
-    // props.thisUsername === props.username ? (
-    <div style={{ textAlign: "right", margin: "0 auto 20px", width: "900px" }}>
-      <Link to={`/edit/tickets/${props.ticketId}`}>
-        <Button
-          variant="dark"
-          style={{
-            fontSize: "23px",
-            width: "150px"
-          }}
-        >
-          Edit Ticket
-        </Button>
-      </Link>
-    </div>
-  );
-  // ) : null;
+  const editTicket =
+    props.thisUsername === props.username ? (
+      <div
+        style={{ textAlign: "right", margin: "0 auto 20px", width: "900px" }}
+      >
+        <Link to={`/edit/tickets/${props.ticketId}`}>
+          <Button
+            variant="dark"
+            style={{
+              fontSize: "23px",
+              width: "150px"
+            }}
+          >
+            Edit Ticket
+          </Button>
+        </Link>
+      </div>
+    ) : null;
 
   const comments = props.comments.length ? (
     props.comments.map(comment => {
