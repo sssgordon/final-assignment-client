@@ -68,9 +68,7 @@ export default function Details(props) {
           <div className="details-image-wrapper">
             <img src={props.imageUrl} alt="ticket image" />
           </div>
-          <p className="details-description">
-            description: {props.description}
-          </p>
+          <p className="details-description">{props.description}</p>
         </div>
         {editTicket}
         <h2 className="details-price">Comments</h2>
