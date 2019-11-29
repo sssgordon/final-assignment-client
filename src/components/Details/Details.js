@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Accordion, Card, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import CreateCommentFormContainer from "../CreateCommentForm";
 import { Link } from "react-router-dom";
 import "./Details.css";
@@ -12,8 +12,6 @@ export default function Details(props) {
   const createCommentForm = props.thisUsername && (
     <CreateCommentFormContainer ticketId={props.ticketId} />
   );
-
-  const eventName = props.event && props.event.name;
 
   const editTicket =
     props.thisUsername === props.username ? (
@@ -66,7 +64,7 @@ export default function Details(props) {
         <h2 className="details-price">EUR {props.price}</h2>
         <div className="details-wrapper">
           <div className="details-image-wrapper">
-            <img src={props.imageUrl} alt="ticket image" />
+            <img src={props.imageUrl} alt="ticket" />
           </div>
           <p className="details-description">{props.description}</p>
         </div>

@@ -79,30 +79,3 @@ export default function Tickets(props) {
     </Fragment>
   );
 }
-
-{
-  /* <ul>
-          {props.tickets.map((ticket, index) => {
-            const risk = props.risk(ticket.id);
-            const author = ticket.user ? ticket.user.username : ticket.author;
-            return (
-              <Link
-                to={{
-                  pathname: `/tickets/${ticket.id}`,
-                  state: { risk: risk }
-                }}
-                key={index}
-              >
-                <li
-                  key={index}
-                  className={
-                    risk > 75 ? "red" : props.risk > 25 ? "yellow" : "green"
-                  }
-                >
-                  {ticket.description} by {author}
-                </li>
-              </Link>
-            );
-          })}
-        </ul> */
-}

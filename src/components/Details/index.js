@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Details from "./Details";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { getAllTickets } from "../../actions/tickets";
 import { getComments } from "../../actions/comments";
 import { getEvents } from "../../actions/events";

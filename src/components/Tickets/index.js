@@ -3,7 +3,6 @@ import Tickets from "./Tickets";
 import { connect } from "react-redux";
 import { getEvents } from "../../actions/events";
 import { getTickets, getUserTickets } from "../../actions/tickets";
-import { Link } from "react-router-dom";
 import "./Tickets.css";
 
 class TicketsContainer extends Component {
