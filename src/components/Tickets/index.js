@@ -38,17 +38,23 @@ class TicketsContainer extends Component {
 
       let risk = 0;
       // 1.
-      this.props.getUserTickets(ticketId);
+      // this.props.getUserTickets(ticketId);
       const numOfUserTickets =
-        this.props.userTickets && this.props.userTickets.length;
+        this.props.tickets.length &&
+        this.props.tickets.filter(item => item.userId == ticket.userId).length;
+      // this.props.userTickets && this.props.userTickets.length;
       if (numOfUserTickets === 1) {
         risk += 10;
       }
       // 2.
-      const numOfEventTickets = event.tickets && event.tickets.length;
+      const numOfEventTickets =
+        this.props.tickts.length &&
+        this.props.tickets.filter(item => item.eventId == ticket.eventId)
+          .length;
       const totalTicketsPrice =
-        event.tickets &&
-        event.tickets
+        this.props.tickets.length &&
+        this.props.tickets
+          .filter(item => item.eventId == ticket.eventId)
           .map(ticket => parseFloat(ticket.price))
           .reduce((acc, cur) => acc + cur, 0);
       const averageTicketPrice = totalTicketsPrice / numOfEventTickets;
