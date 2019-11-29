@@ -38,21 +38,21 @@ class DetailsContainer extends Component {
       this.props.events.find(event => event.id == thisTicket.eventId);
 
     // fraud risk
-    console.log("ticket test", this.props.tickets.length);
+    // console.log("ticket test", this.props.tickets.length);
     // 1.
     const numOfUserTickets =
       this.props.tickets.length &&
       this.props.tickets.filter(ticket => ticket.userId == thisTicket.userId)
         .length;
 
-    console.log("num of user tickets", numOfUserTickets);
+    // console.log("num of user tickets", numOfUserTickets);
     // 2.
     const numOfEventTickets =
       this.props.tickets.length &&
       this.props.tickets.filter(ticket => ticket.eventId == thisTicket.eventId)
         .length;
 
-    console.log("num of event tickets", numOfEventTickets);
+    // console.log("num of event tickets", numOfEventTickets);
     const totalTicketsPrice =
       this.props.tickets.length &&
       this.props.tickets
@@ -99,6 +99,8 @@ class DetailsContainer extends Component {
       if (numOfComments > 3) {
         risk += 5;
       }
+
+      console.log("fraud risk test", risk);
 
       // 5.
       if (risk < 5) {
