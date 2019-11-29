@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
+import "./App.css";
+import { Route } from "react-router-dom";
+import NavigationContainer from "./components/Nav";
+import SignupFormContainer from "./components/SignupForm";
+import LoginFormContainer from "./components/LoginForm";
+import EventsContainer from "./components/Events";
+import CreateEventFormContainer from "./components/CreateEventForm";
+import TicketsContainer from "./components/Tickets";
+import DetailsContainer from "./components/Details";
+import EditDetailsFormContainer from "./components/EditDetailsForm";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <NavigationContainer />
+      <Route path="/login" component={LoginFormContainer} exact />
+      <Route path="/signup" component={SignupFormContainer} exact />
+      <Route path="/" component={EventsContainer} exact />
+      <Route path="/create-event" component={CreateEventFormContainer} exact />
+      <Route path="/events/:eventId" component={TicketsContainer} />
+      <Route path="/tickets/:ticketId" component={DetailsContainer} />
+      <Route
+        path="/edit/tickets/:ticketId"
+        component={EditDetailsFormContainer}
+      />
+    </Fragment>
   );
 }
 

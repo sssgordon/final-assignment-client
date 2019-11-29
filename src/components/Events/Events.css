@@ -1,0 +1,105 @@
+.event-card {
+  width: 1000px;
+  height: 330px;
+  margin: 35px auto;
+  transition: 0.3s;
+}
+
+.event-card:hover {
+  width: 1040px;
+  height: 370px;
+  transition: 0.3s;
+}
+
+.card-img-wrapper {
+  width: 1000px;
+  height: 330px;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card-img-wrapper:hover {
+  width: 1040px;
+  height: 370px;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.event-title {
+  font-family: "Crimson Text", serif;
+  font-size: 55px;
+  position: relative;
+  left: 53px;
+  text-align: none;
+}
+
+.event-name {
+  font-family: "Crimson Text", serif;
+  color: white;
+  font-size: 50px;
+  background: rgba(0, 0, 0, 0.4);
+  display: inline-block;
+}
+
+.event-date {
+  font-family: "Crimson Text", serif;
+  font-size: 30px;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  display: inline-block;
+}
+
+.btn-link.create-event {
+  font-family: "Crimson Text", serif;
+  font-size: 25px;
+  margin: 0;
+  color: black;
+  text-decoration: none;
+}
+
+.btn-link.create-event:hover {
+  text-decoration: none;
+  color: grey;
+}
+
+.no-event {
+  text-align: center;
+  font-family: "Crimson Text", serif;
+  font-size: 30px;
+  margin-top: 30px;
+}
+
+.pagination {
+  position: relative;
+  left: 36px;
+}
+
+.page-item {
+  border: black 3px solid;
+  margin: 10px;
+  width: 50px;
+  height: 60px;
+  transition: 0.3s;
+}
+
+.page-item:hover {
+  border: black 3px solid;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+.page-number {
+  color: black;
+  font-size: 35px;
+  font-family: "Crimson Text", serif;
+  text-align: center;
+  margin: 10px;
+}
+.page-number:hover {
+  color: black;
+  text-decoration: none;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");

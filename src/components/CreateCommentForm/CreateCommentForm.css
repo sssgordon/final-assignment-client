@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text&display=swap");
+
+/* .create-comment-form-wrapper {
+  border: black solid 1px;
+  border-radius: 5px;
+  width: 400px;
+  margin: 20px auto;
+} */
+
+.form-control.create-comment-form-input {
+  font-size: 20px;
+  width: 100%;
+}
+.create-comment-form {
+  font-family: "Crimson Text", serif;
+  max-width: 600px;
+  margin: 20px auto;
+}
+.btn.create-comment-form-btn {
+  font-size: 19px;
+  float: right;
+}
