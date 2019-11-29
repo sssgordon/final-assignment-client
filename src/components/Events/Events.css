@@ -72,20 +72,20 @@
 }
 
 .pagination {
-  width: 225px;
-  margin: 0 auto 100px;
-  text-align: center;
+  position: relative;
+  left: 36px;
 }
 
 .page-item {
   border: black 3px solid;
   margin: 10px;
   width: 50px;
+  height: 60px;
   transition: 0.3s;
 }
 
 .page-item:hover {
-  border: grey 3px solid;
+  border: black 3px solid;
   margin: 10px;
   transition: 0.3s;
 }
@@ -98,7 +98,7 @@
   margin: 10px;
 }
 .page-number:hover {
-  color: grey;
+  color: black;
   text-decoration: none;
 }
 
