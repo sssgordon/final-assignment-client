@@ -19,7 +19,10 @@ class TicketsContainer extends Component {
     }
 
     const noTicket = !this.props.tickets.length && (
-      <p className="no-ticket"> There is no ticket for this event yet!</p>
+      <p className="no-ticket">
+        {" "}
+        There is no ticket for this event yet. Login to create one.
+      </p>
     );
 
     const event = this.props.events.find(

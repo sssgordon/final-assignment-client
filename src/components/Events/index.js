@@ -19,6 +19,10 @@ class EventsContainer extends Component {
   };
 
   render() {
+    const noEvent = !this.props.events.length && (
+      <p className="no-event">There is no event yet. Login to create one.</p>
+    );
+
     const indexOfLastEvent = this.state.currentPage * this.state.eventsPerPage;
     const indexOfFirstEvent = indexOfLastEvent - this.state.eventsPerPage;
     const currentEvents = this.props.events.slice(
@@ -38,6 +42,7 @@ class EventsContainer extends Component {
           loading={this.state.loading}
           user={this.props.user}
         />
+        {noEvent}
         <Pagination
           eventsPerPage={this.state.eventsPerPage}
           totalEvents={this.props.events.length}

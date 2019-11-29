@@ -48,6 +48,13 @@
   color: grey;
 }
 
+.no-event {
+  text-align: center;
+  font-family: "Crimson Text", serif;
+  font-size: 30px;
+  margin-top: 30px;
+}
+
 .pagination {
   width: 225px;
   margin: 0 auto 100px;
