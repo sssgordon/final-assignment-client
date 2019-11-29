@@ -46,12 +46,15 @@ export default function Events({ events, loading, user }) {
                 to={`/events/${event.id}`}
                 style={{ textDecoration: "none", color: "white" }}
               >
-                <Card.Img src={event.imageUrl} alt="Card image" />
-                <Card.ImgOverlay>
-                  <h1 className="event-name">{event.name}</h1>
-                  <br></br>
-                  <h3 className="event-date">{event.date.slice(0, 10)}</h3>
-                </Card.ImgOverlay>
+                <div className="card-img-wrapper">
+                  <Card.Img src={event.imageUrl} alt="Card image" />
+
+                  <Card.ImgOverlay style={{ overflow: "hidden" }}>
+                    <h1 className="event-name">{event.name}</h1>
+                    <br></br>
+                    <h3 className="event-date">{event.date.slice(0, 10)}</h3>
+                  </Card.ImgOverlay>
+                </div>
               </Link>
             </Card>
           );

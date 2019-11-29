@@ -11,6 +11,22 @@
   transition: 0.3s;
 }
 
+.card-img-wrapper {
+  width: 1000px;
+  height: 330px;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card-img-wrapper:hover {
+  width: 1040px;
+  height: 370px;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
 .event-title {
   font-family: "Crimson Text", serif;
   font-size: 55px;
