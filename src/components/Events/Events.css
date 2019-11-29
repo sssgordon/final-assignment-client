@@ -13,7 +13,7 @@
 
 .card-img-wrapper {
   width: 998px;
-  height: 327px;
+  height: 328px;
   border-radius: 5px;
   overflow: hidden;
   transition: 0.3s;
@@ -21,7 +21,7 @@
 
 .card-img-wrapper:hover {
   width: 1038px;
-  height: 367px;
+  height: 368px;
   border-radius: 5px;
   overflow: hidden;
   transition: 0.3s;
